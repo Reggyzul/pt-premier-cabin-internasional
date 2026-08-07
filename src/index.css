@@ -7,7 +7,7 @@
   }
   
   body {
-    background-color: #0B1B3D;
+    background-color: #FDFBF7;
     color: #0F172A;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -31,54 +31,34 @@
   }
 }
 
-/* Ticker Marquee Keyframe */
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  display: flex;
-  width: 200%;
-  animation: marquee 35s linear infinite;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
-
-/* Custom Design System & Glassmorphism Utilities */
+/* Custom Glassmorphism Utilities for Eco Luxury Hospitality */
 .glass-nav {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(253, 251, 247, 0.96);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(11, 27, 61, 0.1);
+  border-bottom: 1px solid rgba(15, 56, 44, 0.1);
 }
 
 .glass-card {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(11, 27, 61, 0.08);
-  box-shadow: 0 12px 32px -8px rgba(11, 27, 61, 0.06);
+  border: 1px solid rgba(15, 56, 44, 0.08);
+  box-shadow: 0 12px 32px -8px rgba(15, 56, 44, 0.06);
 }
 
 .glass-card-dark {
-  background: rgba(11, 27, 61, 0.96);
+  background: rgba(5, 26, 20, 0.96);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.4);
 }
 
-.navy-gradient {
-  background: linear-gradient(135deg, #0B1B3D 0%, #00224D 60%, #001229 100%);
-}
-
-.crimson-glow {
-  box-shadow: 0 8px 25px -4px rgba(230, 57, 70, 0.35);
+.emerald-gradient {
+  background: linear-gradient(135deg, #051A14 0%, #0F382C 60%, #08241C 100%);
 }
 
 .gold-glow {
-  box-shadow: 0 8px 25px -4px rgba(245, 158, 11, 0.4);
+  box-shadow: 0 8px 25px -4px rgba(197, 160, 89, 0.4);
 }
 
 /* Shine effect on buttons */
@@ -108,33 +88,19 @@
   left: 100%;
 }
 
-/* Luxury Subtle Grid Pattern */
-.bg-grid-pattern {
-  background-size: 48px 48px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-}
-
-/* Dot Pattern Accent */
-.bg-dot-pattern {
-  background-image: radial-gradient(rgba(11, 27, 61, 0.08) 1px, transparent 1px);
-  background-size: 20px 20px;
-}
-
 /* Custom Premium Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #F8F9FA;
+  background: #FDFBF7;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0B1B3D;
+  background: #0F382C;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #E63946;
+  background: #C5A059;
 }
 
 .hover-lift {

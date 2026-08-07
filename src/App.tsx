@@ -1,109 +1,131 @@
-import React, { useState } from 'react';
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { PillarsSection } from './components/PillarsSection';
-import { Footer } from './components/Footer';
-import { ContactModal } from './components/ContactModal';
-import { ProfilPage } from './components/ProfilPage';
-import { BidangUsahaPage } from './components/BidangUsahaPage';
+import React, { useState, useEffect } from 'react';
+import Navbar from './components/Navbar';
+import HeroSection from './components/HeroSection';
+import AboutSection from './components/AboutSection';
+import PilotProjectSection from './components/PilotProjectSection';
+import CoreServicesSection from './components/CoreServicesSection';
+import ValuesSection from './components/ValuesSection';
+import FooterSection from './components/FooterSection';
+import SaungSareModal from './components/SaungSareModal';
+import ContactModal from './components/ContactModal';
+import { ChevronUp, MessageSquareCode } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'profil' | 'bidang-usaha'>('home');
-  const [activeProfilTab, setActiveProfilTab] = useState<string | undefined>();
-  const [activeBidangUsahaTab, setActiveBidangUsahaTab] = useState<string | undefined>();
+  const [saungSareModalOpen, setSaungSareModalOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
-  const [prefilledInquiry, setPrefilledInquiry] = useState<string | undefined>();
+  const [selectedService, setSelectedService] = useState('Pilot Project Saung Sare');
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
-  const handleOpenContact = (inquiryType?: string) => {
-    setPrefilledInquiry(inquiryType);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 400) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleOpenContactWithService = (serviceName?: string) => {
+    if (serviceName) {
+      setSelectedService(serviceName);
+    }
     setContactModalOpen(true);
   };
 
-  const handleScrollToEstimator = () => {
-    if (currentPage !== 'home') {
-      setCurrentPage('home');
-      setTimeout(() => {
-        const el = document.getElementById('estimator');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      const el = document.getElementById('estimator');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleNavigate = (page: 'home' | 'profil' | 'bidang-usaha', targetId?: string) => {
-    setCurrentPage(page);
-    if (page === 'profil') {
-      if (targetId) setActiveProfilTab(targetId);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (page === 'bidang-usaha') {
-      if (targetId) setActiveBidangUsahaTab(targetId);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (page === 'home') {
-      if (targetId && targetId.startsWith('#')) {
-        setTimeout(() => {
-          const el = document.querySelector(targetId);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }
+  const handleFastWhatsApp = () => {
+    const waNumber = '6281234567890';
+    const text = encodeURIComponent(
+      'Halo PT. PREMIER CABIN INTERNASIONAL, saya berminat berkonsultasi mengenai Properti & Pilot Project Saung Sare. Terima kasih!'
+    );
+    window.open(`https://api.whatsapp.com/send?phone=${waNumber}&text=${text}`, '_blank');
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#0066b2] selection:text-white">
-      {/* Navbar */}
+    <div className="relative min-h-screen bg-[#FDFBF7] text-[#0F172A] selection:bg-[#0F382C] selection:text-[#F4EFE6] font-sans">
+      
+      {/* NAVBAR */}
       <Navbar
-        onOpenContact={handleOpenContact}
-        onOpenEstimator={handleScrollToEstimator}
-        currentPage={currentPage}
-        onNavigate={handleNavigate}
+        onOpenContact={() => handleOpenContactWithService('General Consultation')}
+        onOpenSaungSare={() => setSaungSareModalOpen(true)}
       />
 
-      {currentPage === 'home' ? (
-        <main>
-          {/* Hero Section */}
-          <Hero
-            onOpenContact={handleOpenContact}
-            onOpenEstimator={handleScrollToEstimator}
-            onNavigateToProfil={(subId) => handleNavigate('profil', subId)}
-          />
-          {/* Empat Pilar Keunggulan */}
-          <PillarsSection />
-        </main>
-      ) : currentPage === 'bidang-usaha' ? (
-        <main>
-          <BidangUsahaPage
-            onOpenContact={handleOpenContact}
-            onNavigateHome={() => handleNavigate('home')}
-            initialTab={activeBidangUsahaTab}
-          />
-        </main>
-      ) : (
-        <main>
-          <ProfilPage
-            onOpenContact={handleOpenContact}
-            onNavigateHome={() => handleNavigate('home')}
-            initialTab={activeProfilTab}
-          />
-        </main>
-      )}
+      {/* MAIN HOME PAGE FLOW */}
+      <main className="relative z-10">
+        
+        {/* 1. HERO SECTION (First Impression) */}
+        <HeroSection onOpenSaungSare={() => setSaungSareModalOpen(true)} />
 
-      {/* Footer */}
-      <Footer
-        onOpenContact={handleOpenContact}
-        onOpenEstimator={handleScrollToEstimator}
+        {/* 2. ABOUT US (Ringkasan Singkat) */}
+        <AboutSection />
+
+        {/* 3. FEATURED PILOT PROJECT (Showcase Utama: Saung Sare) */}
+        <PilotProjectSection onOpenSaungSareModal={() => setSaungSareModalOpen(true)} />
+
+        {/* 4. OUR CORE SERVICES (Layanan Utama: Property Dev, Hospitality Mgmt, Investment, Travel & Lifestyle) */}
+        <CoreServicesSection onSelectService={(title) => handleOpenContactWithService(title)} />
+
+        {/* 5. WHY CHOOSE US / VALUES (5 Pilar Utama) */}
+        <ValuesSection />
+
+      </main>
+
+      {/* 6. FOOTER / CONTACT QUICK-ACCESS */}
+      <FooterSection onOpenContact={() => handleOpenContactWithService('Footer Inquiry')} />
+
+      {/* MODALS */}
+      <SaungSareModal
+        isOpen={saungSareModalOpen}
+        onClose={() => setSaungSareModalOpen(false)}
+        onOpenContact={() => handleOpenContactWithService('Pilot Project Saung Sare')}
       />
 
-      {/* Interactive Modals */}
       <ContactModal
         isOpen={contactModalOpen}
         onClose={() => setContactModalOpen(false)}
-        prefilledInquiry={prefilledInquiry}
+        initialService={selectedService}
       />
+
+      {/* FLOATING ACTION BUTTONS */}
+      <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
+        {/* WhatsApp Fast Button */}
+        <motion.button
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          onClick={handleFastWhatsApp}
+          className="w-14 h-14 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-full shadow-2xl flex items-center justify-center cursor-pointer hover:scale-110 transition-all border-2 border-white"
+          title="Chat WhatsApp Advisor PT. Premier Cabin Internasional"
+          id="floater-wa"
+        >
+          <MessageSquareCode className="w-7 h-7" />
+        </motion.button>
+
+        {/* Scroll To Top */}
+        <AnimatePresence>
+          {showScrollTop && (
+            <motion.button
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              onClick={scrollToTop}
+              className="w-12 h-12 bg-[#0F382C] hover:bg-[#14532D] text-[#F4EFE6] border border-[#C5A059]/40 rounded-full shadow-xl flex items-center justify-center cursor-pointer transition-all"
+              title="Kembali ke Atas"
+              id="floater-scroll-top"
+            >
+              <ChevronUp className="w-6 h-6 text-[#C5A059]" />
+            </motion.button>
+          )}
+        </AnimatePresence>
+      </div>
+
     </div>
   );
 }
-

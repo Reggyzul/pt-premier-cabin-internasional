@@ -23,8 +23,8 @@ export default function HomePage({ onNavigatePage, onOpenSaungSareModal, onOpenC
       {/* 2. OVERLAY SECTIONS CONTAINER (SLIDES OVER HERO GRADUALLY AS YOU SCROLL) */}
       <div className="relative z-10 bg-[#F8F6F0] rounded-t-[28px] sm:rounded-t-[44px] shadow-[0_-20px_50px_rgba(0,0,0,0.45)] border-t border-[#D4AF37]/30 transition-all duration-300">
         
-        {/* 2. ABOUT US (Mentutup Hero Section Secara Perlahan Sesuai Panjang Scroll) */}
-        <AboutSection />
+        {/* 2. ABOUT US (Klik Selengkapnya membuka Halaman Khusus Tentang Kami) */}
+        <AboutSection onOpenAboutPage={() => onNavigatePage('about')} />
 
         {/* 3. FEATURED PILOT PROJECT (Showcase Utama: Saung Sare) */}
         <PilotProjectSection onOpenSaungSareModal={() => onNavigatePage('saung-sare')} />

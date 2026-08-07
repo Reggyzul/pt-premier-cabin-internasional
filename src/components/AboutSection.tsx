@@ -8,9 +8,13 @@ interface AboutSectionProps {
 }
 
 export default function AboutSection({ onOpenAboutPage }: AboutSectionProps) {
-  const handleScrollNext = () => {
-    const el = document.getElementById('pilot-project');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  const handleClickSelengkapnya = () => {
+    if (onOpenAboutPage) {
+      onOpenAboutPage();
+    } else {
+      const el = document.getElementById('pilot-project');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   // Strip "PT." or "PT. " from name for cleaner header
@@ -48,10 +52,10 @@ export default function AboutSection({ onOpenAboutPage }: AboutSectionProps) {
         </div>
       </div>
 
-      {/* 🎯 PRECISELY CENTERED DOWNWARD ARROW WITH "SELENGKAPNYA" LABEL (NO CIRCLE) */}
+      {/* 🎯 PRECISELY CENTERED DOWNWARD ARROW LINK TO ABOUT PAGE */}
       <div className="pt-12 sm:pt-16 flex flex-col items-center justify-center text-center">
         <button
-          onClick={handleScrollNext}
+          onClick={handleClickSelengkapnya}
           className="group flex flex-col items-center gap-1 text-xs font-sans font-bold uppercase tracking-[0.2em] text-[#1B3B2B] hover:text-[#D4AF37] transition-all cursor-pointer"
         >
           <span className="text-[#1B3B2B] group-hover:text-[#D4AF37] transition-colors">Selengkapnya</span>

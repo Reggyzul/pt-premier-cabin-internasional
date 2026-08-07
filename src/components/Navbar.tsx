@@ -42,7 +42,7 @@ export default function Navbar({ currentPage, setCurrentPage, onOpenContactModal
 
   return (
     <>
-      {/* 👑 PLATARAN STYLE 100% RESPONSIVE TOP NAVBAR */}
+      {/* 👑 PLATARAN STYLE TOP NAVBAR */}
       <header
         className={`fixed top-0 left-0 w-full z-50 px-4 sm:px-8 lg:px-12 py-3 sm:py-5 flex items-center justify-between text-white transition-all duration-500 ${
           isScrolled
@@ -61,7 +61,7 @@ export default function Navbar({ currentPage, setCurrentPage, onOpenContactModal
             <span>MENU</span>
           </button>
 
-          {/* LANGUAGE SELECTOR (HIDDEN ON VERY NARROW MOBILE, SHOWN ON SM+) */}
+          {/* LANGUAGE SELECTOR */}
           <div className="relative hidden sm:block">
             <button
               onClick={() => setLangDropdownOpen(!langDropdownOpen)}
@@ -109,22 +109,14 @@ export default function Navbar({ currentPage, setCurrentPage, onOpenContactModal
           </span>
         </div>
 
-        {/* RIGHT SIDE: CONTACT & RESERVATIONS OUTLINE BUTTON */}
+        {/* RIGHT SIDE: CONTACT LINK */}
         <div className="flex items-center gap-3 sm:gap-6 shrink-0">
           <a
             href="#contact"
             onClick={() => handleNavClick('contact', 'contact')}
-            className="hidden md:inline-block text-xs uppercase tracking-[0.15em] font-sans font-medium text-white hover:text-[#D4AF37] transition-colors"
+            className="text-[10px] sm:text-xs uppercase tracking-[0.15em] font-sans font-medium text-white hover:text-[#D4AF37] transition-colors cursor-pointer"
           >
             CONTACT
-          </a>
-
-          <a
-            href="#contact"
-            onClick={() => handleNavClick('contact')}
-            className="border border-white/80 hover:border-white hover:bg-white hover:text-[#111817] text-white font-sans text-[10px] sm:text-xs tracking-widest sm:tracking-[0.2em] uppercase px-3 sm:px-6 py-1.5 sm:py-2.5 transition-all duration-300 cursor-pointer shadow-md rounded-none whitespace-nowrap"
-          >
-            RESERVATIONS
           </a>
         </div>
       </header>

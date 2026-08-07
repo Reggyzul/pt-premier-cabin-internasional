@@ -7,7 +7,7 @@ import AboutPage from './pages/AboutPage';
 import SaungSarePage from './pages/SaungSarePage';
 import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
-import { ChevronUp, MessageSquareCode } from 'lucide-react';
+import { ChevronUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function App() {
@@ -43,14 +43,6 @@ export default function App() {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleFastWhatsApp = () => {
-    const waNumber = '6281234567890';
-    const text = encodeURIComponent(
-      'Halo PT. PREMIER CABIN INTERNASIONAL, saya berminat berkonsultasi mengenai Properti & Pilot Project Saung Sare. Terima kasih!'
-    );
-    window.open(`https://api.whatsapp.com/send?phone=${waNumber}&text=${text}`, '_blank');
   };
 
   return (
@@ -95,20 +87,8 @@ export default function App() {
         initialService={selectedService}
       />
 
-      {/* FLOATING ACTION BUTTONS */}
+      {/* FLOATING ACTION BUTTON (SCROLL TO TOP ONLY) */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
-        {/* WhatsApp Fast Button */}
-        <motion.button
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          onClick={handleFastWhatsApp}
-          className="w-14 h-14 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-full shadow-2xl flex items-center justify-center cursor-pointer hover:scale-110 transition-all border-2 border-white"
-          title="Chat WhatsApp Advisor PT. Premier Cabin Internasional"
-          id="floater-wa"
-        >
-          <MessageSquareCode className="w-7 h-7" />
-        </motion.button>
-
         {/* Scroll To Top */}
         <AnimatePresence>
           {showScrollTop && (
@@ -117,11 +97,11 @@ export default function App() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0, opacity: 0 }}
               onClick={scrollToTop}
-              className="w-12 h-12 bg-[#0F382C] hover:bg-[#14532D] text-[#F4EFE6] border border-[#C5A059]/40 rounded-full shadow-xl flex items-center justify-center cursor-pointer transition-all"
+              className="w-11 h-11 bg-[#1B3B2B] hover:bg-black text-[#D4AF37] border border-[#D4AF37]/40 rounded-full shadow-xl flex items-center justify-center cursor-pointer transition-all"
               title="Kembali ke Atas"
               id="floater-scroll-top"
             >
-              <ChevronUp className="w-6 h-6 text-[#C5A059]" />
+              <ChevronUp className="w-5 h-5 text-[#D4AF37]" />
             </motion.button>
           )}
         </AnimatePresence>

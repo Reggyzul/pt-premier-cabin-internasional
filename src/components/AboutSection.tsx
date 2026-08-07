@@ -1,5 +1,6 @@
 import React from 'react';
 import { COMPANY_DATA } from '../data/companyData';
+import { SITE_IMAGES } from '../data/assetsData';
 
 export default function AboutSection() {
   return (
@@ -22,7 +23,7 @@ export default function AboutSection() {
         </div>
         <div className="relative">
           <img
-            src="/src/assets/premier_cabin_property.png"
+            src={SITE_IMAGES.hospitalityMgmt}
             alt="Hospitality Luxury"
             className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
           />

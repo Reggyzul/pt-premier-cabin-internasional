@@ -1,4 +1,5 @@
 import React from 'react';
+import { SITE_IMAGES } from '../data/assetsData';
 
 interface HeroSectionProps {
   onOpenSaungSare?: () => void;
@@ -21,7 +22,7 @@ export default function HeroSection({ onOpenSaungSare }: HeroSectionProps) {
       {/* 🌊 PLATARAN STYLE FULL-BLEED LANDSCAPE BACKDROP BANNER */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/src/assets/aurora_hero_master.png"
+          src={SITE_IMAGES.heroMaster}
           alt="Discover Indonesia - Premier Cabin"
           className="w-full h-full object-cover object-center scale-105 transition-transform duration-[12000ms] hover:scale-100"
         />
@@ -36,7 +37,7 @@ export default function HeroSection({ onOpenSaungSare }: HeroSectionProps) {
           Discover Indonesia
         </h1>
 
-        {/* SUB-HEADLINE SLOGAN (UPPERCASE SANS-SERIF WITH RESPONSIVE LETTER SPACING) */}
+        {/* SUB-HEADLINE SLOGAN */}
         <p className="font-sans font-medium text-[10px] sm:text-xs md:text-sm lg:text-base text-white uppercase tracking-[0.15em] sm:tracking-[0.3em] max-w-3xl mx-auto drop-shadow-md px-2">
           INSPIRING IMPACT, CRAFTING EXCELLENCE
         </p>

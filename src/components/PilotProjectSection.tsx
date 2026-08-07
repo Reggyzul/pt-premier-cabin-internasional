@@ -1,5 +1,6 @@
 import React from 'react';
 import { COMPANY_DATA } from '../data/companyData';
+import { SITE_IMAGES } from '../data/assetsData';
 
 interface PilotProjectSectionProps {
   onOpenSaungSareModal?: () => void;
@@ -25,7 +26,7 @@ export default function PilotProjectSection({ onOpenSaungSareModal }: PilotProje
           <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-[#D4AF37]/50 transition-all group">
             <div
               className="h-48 rounded-xl bg-cover bg-center mb-6 group-hover:scale-105 transition-transform duration-300"
-              style={{ backgroundImage: `url('/src/assets/saung_sare_hero.png')` }}
+              style={{ backgroundImage: `url('${SITE_IMAGES.saungSareHero}')` }}
             />
             <h3 className="font-serif font-bold text-xl text-[#D4AF37] mb-2">Desain Menyatu Alam</h3>
             <p className="text-gray-300 text-sm leading-relaxed">
@@ -37,7 +38,7 @@ export default function PilotProjectSection({ onOpenSaungSareModal }: PilotProje
           <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-[#D4AF37]/50 transition-all group">
             <div
               className="h-48 rounded-xl bg-cover bg-center mb-6 group-hover:scale-105 transition-transform duration-300"
-              style={{ backgroundImage: `url('/src/assets/saung_sare_interior.png')` }}
+              style={{ backgroundImage: `url('${SITE_IMAGES.saungSareInterior}')` }}
             />
             <h3 className="font-serif font-bold text-xl text-[#D4AF37] mb-2">Hospitality Eksklusif</h3>
             <p className="text-gray-300 text-sm leading-relaxed">
@@ -49,7 +50,7 @@ export default function PilotProjectSection({ onOpenSaungSareModal }: PilotProje
           <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-[#D4AF37]/50 transition-all group">
             <div
               className="h-48 rounded-xl bg-cover bg-center mb-6 group-hover:scale-105 transition-transform duration-300"
-              style={{ backgroundImage: `url('/src/assets/investment_office.png')` }}
+              style={{ backgroundImage: `url('${SITE_IMAGES.investmentHQ}')` }}
             />
             <h3 className="font-serif font-bold text-xl text-[#D4AF37] mb-2">Peluang Investasi</h3>
             <p className="text-gray-300 text-sm leading-relaxed">

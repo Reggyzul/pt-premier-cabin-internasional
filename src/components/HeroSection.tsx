@@ -42,10 +42,6 @@ export default function HeroSection({ onOpenSaungSare, onOpenContactModal }: Her
           INSPIRING IMPACT, CRAFTING EXCELLENCE
         </p>
 
-        <p className="font-script text-2xl sm:text-3xl text-[#D4AF37] pt-2">
-          "{COMPANY_DATA.tagline}" — {COMPANY_DATA.name}
-        </p>
-
         {/* ACTION BUTTONS */}
         <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a

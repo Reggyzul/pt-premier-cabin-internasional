@@ -1,8 +1,13 @@
+import tentangKamiMasterImg from '../assets/tentang_kami_master.jpg';
+
 // Centralized High-Resolution Asset Management for PT. Premier Cabin Internasional
 export const SITE_IMAGES = {
   // Master Landscape Hero Backdrop (Plataran Style Ocean & Eco-Resort Island)
   heroMaster: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2000&q=90',
   
+  // User Uploaded Master Eco Resort Image for About Us (Tentang Kami)
+  aboutUsMaster: tentangKamiMasterImg,
+
   // Saung Sare Eco Luxury Resort Villa Exterior
   saungSareHero: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1600&q=90',
   

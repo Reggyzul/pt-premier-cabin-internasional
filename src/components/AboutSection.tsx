@@ -23,11 +23,11 @@ export default function AboutSection() {
         </div>
         <div className="relative">
           <img
-            src={SITE_IMAGES.hospitalityMgmt}
-            alt="Hospitality Luxury"
+            src={SITE_IMAGES.aboutUsMaster}
+            alt="PT Premier Cabin Internasional - About Us Luxury Resort"
             className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
           />
-          <div className="absolute -bottom-6 -left-6 bg-[#1B3B2B] text-white p-6 rounded-xl hidden sm:block border border-[#D4AF37]/30">
+          <div className="absolute -bottom-6 -left-6 bg-[#1B3B2B] text-white p-6 rounded-xl hidden sm:block border border-[#D4AF37]/30 shadow-xl">
             <p className="font-serif text-2xl font-bold text-[#D4AF37]">Global Standard</p>
             <p className="text-xs text-gray-300">Profesionalisme & Pelayanan Prima</p>
           </div>

@@ -22,11 +22,11 @@ export default function AboutPage({ onOpenContactModal }: AboutPageProps) {
           </p>
         </div>
 
-        {/* HERO IMAGE SHOWCASE */}
+        {/* HERO IMAGE SHOWCASE (USER UPLOADED PHOTO) */}
         <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#D4AF37]/30 aspect-[16/9] max-h-[500px]">
           <img
-            src={SITE_IMAGES.propertyDev}
-            alt="Premier Cabin Property Development Headquarters"
+            src={SITE_IMAGES.aboutUsMaster}
+            alt="Premier Cabin Property & Hospitality Masterpiece"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#1B3B2B]/90 via-transparent to-transparent flex items-end p-8 text-white">

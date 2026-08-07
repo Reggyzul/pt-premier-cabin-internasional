@@ -1,10 +1,20 @@
 import React from 'react';
+import { ChevronDown } from 'lucide-react';
 import { COMPANY_DATA } from '../data/companyData';
 import { SITE_IMAGES } from '../data/assetsData';
 
-export default function AboutSection() {
+interface AboutSectionProps {
+  onOpenAboutPage?: () => void;
+}
+
+export default function AboutSection({ onOpenAboutPage }: AboutSectionProps) {
+  const handleScrollNext = () => {
+    const el = document.getElementById('pilot-project');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section id="about" className="py-24 px-6 max-w-7xl mx-auto text-left">
+    <section id="about" className="py-20 sm:py-24 px-6 max-w-7xl mx-auto text-left relative">
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div>
           <span className="text-[#D4AF37] uppercase tracking-widest text-xs font-semibold">Tentang Kami</span>
@@ -21,6 +31,7 @@ export default function AboutSection() {
             </p>
           </div>
         </div>
+
         <div className="relative">
           <img
             src={SITE_IMAGES.aboutUsMaster}
@@ -32,6 +43,19 @@ export default function AboutSection() {
             <p className="text-xs text-gray-300">Profesionalisme & Pelayanan Prima</p>
           </div>
         </div>
+      </div>
+
+      {/* 🎯 PRECISELY CENTERED DOWNWARD ARROW WITH "SELENGKAPNYA" LABEL */}
+      <div className="pt-12 sm:pt-16 flex flex-col items-center justify-center text-center">
+        <button
+          onClick={handleScrollNext}
+          className="group flex flex-col items-center gap-1.5 text-xs font-sans font-bold uppercase tracking-[0.2em] text-[#1B3B2B] hover:text-[#D4AF37] transition-all cursor-pointer"
+        >
+          <span className="text-[#1B3B2B] group-hover:text-[#D4AF37] transition-colors">Selengkapnya</span>
+          <div className="w-8 h-8 rounded-full border border-[#1B3B2B]/20 group-hover:border-[#D4AF37] flex items-center justify-center transition-colors bg-white/50 shadow-sm">
+            <ChevronDown className="w-4 h-4 text-[#D4AF37] animate-bounce" />
+          </div>
+        </button>
       </div>
     </section>
   );

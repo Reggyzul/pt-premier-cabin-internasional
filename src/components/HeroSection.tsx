@@ -23,7 +23,7 @@ export default function HeroSection({ onOpenSaungSare }: HeroSectionProps) {
       <div className="absolute inset-0 z-0">
         <img
           src={SITE_IMAGES.heroMaster}
-          alt="Discover Indonesia - Premier Cabin"
+          alt="Discover New Possibilities - Premier Cabin"
           className="w-full h-full object-cover object-[center_35%] sm:object-center scale-105 transition-transform duration-[12000ms] hover:scale-100"
         />
         {/* Plataran Multi-layer Gradient Vignette Overlay */}
@@ -34,12 +34,12 @@ export default function HeroSection({ onOpenSaungSare }: HeroSectionProps) {
       <div className="relative z-20 text-center max-w-5xl px-4 sm:px-6 space-y-3 sm:space-y-4 pt-12 sm:pt-0">
         {/* MAIN SERIF DISPLAY HEADLINE */}
         <h1 className="font-serif font-normal text-3xl sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-tight leading-tight sm:leading-none drop-shadow-lg">
-          Discover Indonesia
+          Discover New Possibilities
         </h1>
 
         {/* SUB-HEADLINE SLOGAN */}
         <p className="font-sans font-medium text-[9px] sm:text-xs md:text-sm lg:text-base text-white uppercase tracking-[0.15em] sm:tracking-[0.3em] max-w-3xl mx-auto drop-shadow-md px-2">
-          INSPIRING IMPACT, CRAFTING EXCELLENCE
+          CABINS FOR LIFESTYLE, TRAVEL & INVESTMENT
         </p>
 
         {/* ACTION BUTTON */}

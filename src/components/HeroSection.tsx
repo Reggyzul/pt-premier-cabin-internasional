@@ -17,47 +17,43 @@ export default function HeroSection({ onOpenSaungSare, onOpenContactModal }: Her
     }
   };
 
-  const handleScrollToAbout = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const el = document.getElementById('about');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <section className="relative h-screen flex items-center justify-center bg-[#1B3B2B] text-white pt-16">
-      {/* Background Image Overlay */}
-      <div
-        className="absolute inset-0 z-0 opacity-40 bg-cover bg-center"
-        style={{
-          backgroundImage: `url('/src/assets/aurora_hero_master.png')`
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#1B3B2B] via-[#1B3B2B]/50 to-transparent z-0" />
-      
-      <div className="relative z-10 text-center max-w-4xl px-6">
-        <span className="text-[#D4AF37] font-serif italic text-xl md:text-2xl mb-3 block">
-          "{COMPANY_DATA.tagline}"
-        </span>
-        <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight">
-          Harmoni Properti Eksklusif & Layanan Hospitality Premium
+    <section className="relative w-full h-screen flex items-center justify-center bg-[#1B3B2B] text-white overflow-hidden">
+      {/* 🌊 PLATARAN STYLE FULL-BLEED LANDSCAPE BACKDROP BANNER */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/src/assets/aurora_hero_master.png"
+          alt="Discover Indonesia - Premier Cabin"
+          className="w-full h-full object-cover object-center scale-105 transition-transform duration-[12000ms] hover:scale-100"
+        />
+        {/* Plataran Multi-layer Gradient Vignette Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-transparent to-black/80 z-10" />
+      </div>
+
+      {/* 🏛️ CENTER TYPOGRAPHY LAYOUT (100% SERUPA PLATARAN.COM) */}
+      <div className="relative z-20 text-center max-w-5xl px-6 space-y-4">
+        {/* MAIN SERIF DISPLAY HEADLINE */}
+        <h1 className="font-serif font-normal text-5xl sm:text-7xl lg:text-8xl text-white tracking-tight leading-none drop-shadow-lg">
+          Discover Indonesia
         </h1>
-        <p className="text-gray-300 text-base md:text-lg mb-8 font-light max-w-2xl mx-auto">
-          {COMPANY_DATA.description}
+
+        {/* SUB-HEADLINE SLOGAN (UPPERCASE SANS-SERIF WITH WIDE TRACKING) */}
+        <p className="font-sans font-medium text-xs sm:text-sm lg:text-base text-white uppercase tracking-[0.3em] max-w-3xl mx-auto drop-shadow-md">
+          INSPIRING IMPACT, CRAFTING EXCELLENCE
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+        <p className="font-script text-2xl sm:text-3xl text-[#D4AF37] pt-2">
+          "{COMPANY_DATA.tagline}" — {COMPANY_DATA.name}
+        </p>
+
+        {/* ACTION BUTTONS */}
+        <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
             href="#pilot-project"
             onClick={handleScrollToPilot}
-            className="bg-[#D4AF37] hover:bg-yellow-600 text-[#111817] px-8 py-3.5 rounded-full font-semibold text-sm transition-all shadow-xl cursor-pointer"
+            className="border border-white/90 hover:border-white hover:bg-white hover:text-[#111817] text-white font-sans text-xs tracking-[0.2em] uppercase px-8 py-3.5 transition-all duration-300 shadow-2xl cursor-pointer"
           >
-            Eksplor Proyek: Saung Sare
-          </a>
-          <a
-            href="#about"
-            onClick={handleScrollToAbout}
-            className="border border-white/30 hover:bg-white/10 text-white px-8 py-3.5 rounded-full font-semibold text-sm transition-all cursor-pointer"
-          >
-            Tentang Perusahaan
+            EKSPLOR PROYEK: SAUNG SARE
           </a>
         </div>
       </div>

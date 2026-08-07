@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Target, CheckCircle2, Award, Trees, ShieldCheck, HeartHandshake } from 'lucide-react';
+import { COMPANY_DATA } from '../data/companyData';
 
 export default function AboutSection() {
   return (
@@ -15,15 +16,15 @@ export default function AboutSection() {
         <div className="text-center max-w-3xl mx-auto space-y-3" id="about-heading">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0F382C]/5 border border-[#C5A059]/40 text-[#B8860B] font-display font-extrabold text-xs tracking-wider uppercase shadow-xs">
             <Trees className="w-4 h-4 text-[#C5A059]" />
-            <span>ABOUT US — TENTANG KAMI</span>
+            <span>COMPANY PROFILE — TENTANG KAMI</span>
           </div>
 
           <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-[#0F382C] tracking-tight uppercase leading-tight">
-            Pengenalan Perusahaan & <span className="text-[#C5A059]">Visi Misi</span>
+            Profil Perusahaan & <span className="text-[#C5A059]">Visi Misi</span>
           </h2>
 
           <p className="font-sans text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
-            Mengenal filosofi bisnis, komitmen keharmonisan alam, serta arah strategis PT. Premier Cabin Internasional.
+            Mengenal komitmen strategis {COMPANY_DATA.name} di bidang {COMPANY_DATA.industry}.
           </p>
         </div>
 
@@ -37,34 +38,34 @@ export default function AboutSection() {
         >
           <div className="lg:col-span-7 space-y-5">
             <span className="font-script text-3xl sm:text-4xl text-[#B8860B] block">
-              Properti Eksklusif & Hospitality Premium
+              Tagline: "{COMPANY_DATA.tagline}"
             </span>
             <h3 className="font-display font-black text-2xl sm:text-3xl text-[#0F382C] uppercase tracking-tight">
-              PT. Premier Cabin <span className="text-[#C5A059]">Internasional</span>
+              {COMPANY_DATA.name}
             </h3>
 
             <p className="font-sans text-sm sm:text-base text-slate-700 leading-relaxed font-medium">
-              <strong className="text-[#0F382C] font-bold">PT. Premier Cabin Internasional</strong> adalah perusahaan pengembang properti ramah lingkungan (*eco-luxury property development*) dan pengelola *hospitality premium* bintang lima di Indonesia. 
+              <strong className="text-[#0F382C] font-bold">{COMPANY_DATA.name}</strong> adalah perusahaan yang bergerak di bidang <strong className="text-[#B8860B] font-bold">{COMPANY_DATA.industry}</strong>.
             </p>
 
             <p className="font-sans text-sm text-slate-600 leading-relaxed font-medium">
-              Berlandaskan prinsip filosofi kebudayaan <strong className="text-[#B8860B]">"Mulih Ka Alam"</strong> (Kembali ke Alam), kami menciptakan kawasan hunian resor, villa kayu mewah, serta destinasi wisata gaya hidup bernilai investasi tinggi yang menyatu secara harmonis dengan lanskap alam tropis tanpa merusak ekosistem.
+              {COMPANY_DATA.description}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3">
               <div className="p-4 rounded-2xl bg-white border border-[#0F382C]/10 flex items-start gap-3">
                 <Award className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5" />
                 <div>
-                  <strong className="font-display font-bold text-xs uppercase text-[#0F382C] block">Arsitektur Hijau Eco-Resort</strong>
-                  <span className="text-[11px] text-slate-600 font-medium block mt-0.5">Konstruksi kayu jati & material ramah lingkungan</span>
+                  <strong className="font-display font-bold text-xs uppercase text-[#0F382C] block">Solusi Properti Eksklusif</strong>
+                  <span className="text-[11px] text-slate-600 font-medium block mt-0.5">Meningkatkan gaya hidup & nilai investasi</span>
                 </div>
               </div>
 
               <div className="p-4 rounded-2xl bg-white border border-[#0F382C]/10 flex items-start gap-3">
                 <HeartHandshake className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5" />
                 <div>
-                  <strong className="font-display font-bold text-xs uppercase text-[#0F382C] block">White-Glove Hospitality</strong>
-                  <span className="text-[11px] text-slate-600 font-medium block mt-0.5">Pelayanan concierge & manajemen villa 24/7</span>
+                  <strong className="font-display font-bold text-xs uppercase text-[#0F382C] block">Hospitality Premium</strong>
+                  <span className="text-[11px] text-slate-600 font-medium block mt-0.5">Mendukung pariwisata & jaringan global</span>
                 </div>
               </div>
             </div>
@@ -80,17 +81,17 @@ export default function AboutSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#051A14]/80 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 text-white text-left">
                 <span className="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded bg-[#C5A059] text-white">
-                  Masterplan Concept
+                  Holding Corporate
                 </span>
                 <p className="font-display font-bold text-sm text-white mt-1">
-                  Pengembangan Properti Resor Ramah Lingkungan
+                  Property & Hospitality Development
                 </p>
               </div>
             </div>
           </div>
         </motion.div>
 
-        {/* 2. SEKILAS VISI & MISI */}
+        {/* 2. VISI & MISI */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
           
           {/* VISI */}
@@ -107,11 +108,11 @@ export default function AboutSection() {
             </div>
 
             <h3 className="font-display font-black text-2xl text-white uppercase tracking-tight">
-              Menjadi Pelopor <span className="text-[#C5A059]">Eco-Hospitality Global</span>
+              Holding Company <span className="text-[#C5A059]">Terdepan</span>
             </h3>
 
-            <p className="font-sans text-sm text-slate-200 leading-relaxed font-medium">
-              "Menjadi perusahaan pengembang properti dan pengelola hospitality ramah lingkungan terpercaya berkaliber internasional yang menjadi garda terdepan dalam menginspirasi gaya hidup harmonis bersama alam (*Mulih Ka Alam*)."
+            <p className="font-sans text-sm sm:text-base text-slate-200 leading-relaxed font-medium">
+              "{COMPANY_DATA.visi}"
             </p>
           </motion.div>
 
@@ -129,22 +130,16 @@ export default function AboutSection() {
             </div>
 
             <h3 className="font-display font-black text-2xl text-[#0F382C] uppercase tracking-tight">
-              Komitmen <span className="text-[#C5A059]">Mutu & Keberlanjutan</span>
+              Komitmen <span className="text-[#C5A059]">Pelaksanaan Misi</span>
             </h3>
 
-            <div className="space-y-2 text-xs sm:text-sm text-slate-700 font-medium">
-              <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
-                <span>Pengembangan kawasan villa resor bernilai investasi tinggi dengan standar konstruksi terbaik.</span>
-              </div>
-              <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
-                <span>Penerapan manajemen hospitality bintang lima berbasis kepuasan pelanggan dan efisiensi operasional.</span>
-              </div>
-              <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
-                <span>Penjagaan ekosistem lingkungan alam tropis Indonesia serta kontribusi positif bagi komunitas lokal.</span>
-              </div>
+            <div className="space-y-2.5 text-xs sm:text-sm text-slate-700 font-medium">
+              {COMPANY_DATA.misi.map((m, i) => (
+                <div key={i} className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
+                  <span>{m}</span>
+                </div>
+              ))}
             </div>
           </motion.div>
 

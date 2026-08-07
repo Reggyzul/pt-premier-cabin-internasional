@@ -1,6 +1,6 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { Target, CheckCircle2, Award, Trees, ShieldCheck, HeartHandshake, Lightbulb, Globe, Building2, Sparkles } from 'lucide-react';
+import { COMPANY_DATA } from '../data/companyData';
 
 interface AboutPageProps {
   onOpenContactModal: () => void;
@@ -10,38 +10,38 @@ export default function AboutPage({ onOpenContactModal }: AboutPageProps) {
   const valuesList = [
     {
       num: '01',
-      title: 'Profesional',
+      title: COMPANY_DATA.values[0].name,
       subtitle: 'Standar Eksekusi Papan Atas',
       icon: <Award className="w-7 h-7 text-[#C5A059]" />,
-      desc: 'Dikelola secara profesional oleh jajaran direksi, praktisi properti, dan eksekutif hospitality berdedikasi tinggi dengan rekam jejak teruji.'
+      desc: COMPANY_DATA.values[0].desc
     },
     {
       num: '02',
-      title: 'Terpercaya',
+      title: COMPANY_DATA.values[1].name,
       subtitle: 'Legalitas & Tata Kelola Transparan',
       icon: <ShieldCheck className="w-7 h-7 text-[#C5A059]" />,
-      desc: 'Menjamin kepastian hukum perizinan, sertifikasi hak properti, transparansi laporan dividen investasi, dan kepatuhan penuh pada tata kelola.'
+      desc: COMPANY_DATA.values[1].desc
     },
     {
       num: '03',
-      title: 'Inovatif',
-      subtitle: 'Arsitektur Hijau & Smart Cabin',
+      title: COMPANY_DATA.values[2].name,
+      subtitle: 'Arsitektur Hijau & Solusi Masa Depan',
       icon: <Lightbulb className="w-7 h-7 text-[#C5A059]" />,
-      desc: 'Menerapkan inovasi arsitektur kayu tropis yang ramah lingkungan ("Mulih Ka Alam") dipadukan dengan efisiensi teknologi smart cabin terkini.'
+      desc: COMPANY_DATA.values[2].desc
     },
     {
       num: '04',
-      title: 'Berorientasi Global',
-      subtitle: 'Standar & Jaringan Internasional',
+      title: COMPANY_DATA.values[3].name,
+      subtitle: 'Standar & Jaringan Pasar Global',
       icon: <Globe className="w-7 h-7 text-[#C5A059]" />,
-      desc: 'Memiliki standar estetika, kualitas layanan akomodasi, serta jangkauan jaringan pemasaran dan reservasi berkelas internasional.'
+      desc: COMPANY_DATA.values[3].desc
     },
     {
       num: '05',
-      title: 'Pelayanan Prima',
+      title: COMPANY_DATA.values[4].name,
       subtitle: 'White-Glove Hospitality 24/7',
       icon: <HeartHandshake className="w-7 h-7 text-[#C5A059]" />,
-      desc: 'Menghadirkan pelayanan concierge ramah, responsif, dan siap melayani setiap kebutuhan pemilik properti maupun tamu resor selama 24 jam.'
+      desc: COMPANY_DATA.values[4].desc
     }
   ];
 
@@ -53,15 +53,15 @@ export default function AboutPage({ onOpenContactModal }: AboutPageProps) {
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0F382C]/5 border border-[#C5A059]/40 text-[#B8860B] font-display font-extrabold text-xs tracking-widest uppercase shadow-xs">
             <Trees className="w-4 h-4 text-[#C5A059]" />
-            <span>TENTANG KAMI — PROFIL PERUSAHAAN</span>
+            <span>COMPANY PROFILE — TENTANG KAMI</span>
           </div>
 
           <h1 className="font-display font-black text-3xl sm:text-5xl text-[#0F382C] uppercase tracking-tight leading-tight">
-            Tentang <span className="text-[#C5A059]">PT. Premier Cabin Internasional</span>
+            Tentang <span className="text-[#C5A059]">{COMPANY_DATA.name}</span>
           </h1>
 
           <p className="font-sans text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
-            Holding company yang menaungi inovasi pengembangan properti ramah lingkungan (*eco-luxury property*) dan layanan pengelola resor bintang lima terkemuka di Indonesia.
+            Perusahaan holding yang bergerak di bidang {COMPANY_DATA.industry} dengan tagline "{COMPANY_DATA.tagline}".
           </p>
         </div>
       </div>
@@ -71,34 +71,34 @@ export default function AboutPage({ onOpenContactModal }: AboutPageProps) {
         <div className="bg-white rounded-3xl p-8 sm:p-12 border border-[#0F382C]/10 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 space-y-5">
             <span className="font-script text-3xl sm:text-4xl text-[#B8860B] block">
-              Harmoni Kehidupan Bersama Alam ("Mulih Ka Alam")
+              Tagline: "{COMPANY_DATA.tagline}"
             </span>
             <h2 className="font-display font-black text-2xl sm:text-3xl text-[#0F382C] uppercase tracking-tight">
-              Profil Perusahaan & <span className="text-[#C5A059]">Holding Corporate</span>
+              {COMPANY_DATA.name}
             </h2>
 
             <p className="font-sans text-sm sm:text-base text-slate-700 leading-relaxed font-medium">
-              <strong className="text-[#0F382C]">PT. Premier Cabin Internasional</strong> berdiri sebagai holding company berwawasan masa depan yang memadukan dua pilar bisnis strategis: <strong className="text-[#B8860B]">Property Development</strong> dan <strong className="text-[#B8860B]">Hospitality Management</strong>.
+              <strong className="text-[#0F382C]">{COMPANY_DATA.name}</strong> adalah perusahaan yang bergerak di bidang <strong className="text-[#B8860B]">{COMPANY_DATA.industry}</strong>.
             </p>
 
             <p className="font-sans text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-              Dengan memegang teguh semangat filosofis kebudayaan <strong className="text-[#B8860B]">"Mulih Ka Alam"</strong> (Kembali ke Alam), perusahaan berkomitmen menciptakan kawasan villa eksklusif, wooden cabin bernilai estetika tinggi, serta resor liburan keluarga yang memberikan ketenangan alami tanpa sedikit pun mengabaikan standar kenyamanan *white-glove hospitality* modern.
+              {COMPANY_DATA.description}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3">
               <div className="p-4 rounded-2xl bg-[#FDFBF7] border border-[#0F382C]/10 flex items-start gap-3">
                 <Building2 className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5" />
                 <div>
-                  <strong className="font-display font-bold text-xs uppercase text-[#0F382C] block">Pengembangan Kawasan Properti</strong>
-                  <span className="text-[11px] text-slate-600 font-medium block mt-0.5">Konstruksi villa kayu jati solid & masterplan terpadu</span>
+                  <strong className="font-display font-bold text-xs uppercase text-[#0F382C] block">Solusi Properti Eksklusif</strong>
+                  <span className="text-[11px] text-slate-600 font-medium block mt-0.5">Pengembangan proyek perumahan, komersial & investasi</span>
                 </div>
               </div>
 
               <div className="p-4 rounded-2xl bg-[#FDFBF7] border border-[#0F382C]/10 flex items-start gap-3">
                 <Award className="w-5 h-5 text-[#C5A059] shrink-0 mt-0.5" />
                 <div>
-                  <strong className="font-display font-bold text-xs uppercase text-[#0F382C] block">Hospitality Standards 5-Star</strong>
-                  <span className="text-[11px] text-slate-600 font-medium block mt-0.5">Manajemen operasional resor & reservasi global</span>
+                  <strong className="font-display font-bold text-xs uppercase text-[#0F382C] block">Hospitality Premium</strong>
+                  <span className="text-[11px] text-slate-600 font-medium block mt-0.5">Hotel, resort, villa & akomodasi berstandar internasional</span>
                 </div>
               </div>
             </div>
@@ -117,7 +117,7 @@ export default function AboutPage({ onOpenContactModal }: AboutPageProps) {
                   Holding Corporate
                 </span>
                 <p className="font-display font-bold text-sm text-white mt-1">
-                  Integrasi Properti, Resor & Investasi Strategis
+                  Property & Hospitality Development
                 </p>
               </div>
             </div>
@@ -133,15 +133,15 @@ export default function AboutPage({ onOpenContactModal }: AboutPageProps) {
           <div className="bg-[#051A14] text-white rounded-3xl p-8 sm:p-10 border border-[#C5A059]/30 shadow-xl space-y-4 relative overflow-hidden">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C5A059]/20 text-[#F4EFE6] text-xs font-bold uppercase border border-[#C5A059]/40">
               <Target className="w-4 h-4 text-[#C5A059]" />
-              <span>VISI STRATEGIS</span>
+              <span>VISI PERUSAHAAN</span>
             </div>
 
             <h3 className="font-display font-black text-2xl sm:text-3xl text-white uppercase tracking-tight">
-              Menjadi Pelopor <span className="text-[#C5A059]">Eco-Hospitality Global</span>
+              Perusahaan Holding <span className="text-[#C5A059]">Terdepan</span>
             </h3>
 
             <p className="font-sans text-sm sm:text-base text-slate-200 leading-relaxed font-medium">
-              "Menjadi perusahaan pengembang properti dan pengelola hospitality ramah lingkungan terpercaya berkaliber internasional yang menjadi garda terdepan dalam menginspirasi gaya hidup harmonis bersama alam (*Mulih Ka Alam*)."
+              "{COMPANY_DATA.visi}"
             </p>
           </div>
 
@@ -149,26 +149,20 @@ export default function AboutPage({ onOpenContactModal }: AboutPageProps) {
           <div className="bg-white rounded-3xl p-8 sm:p-10 border border-[#0F382C]/10 shadow-xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0F382C]/5 text-[#B8860B] text-xs font-bold uppercase border border-[#C5A059]/40">
               <ShieldCheck className="w-4 h-4 text-[#C5A059]" />
-              <span>MISI PERUSAHAAN</span>
+              <span>MISI STRATEGIS</span>
             </div>
 
             <h3 className="font-display font-black text-2xl sm:text-3xl text-[#0F382C] uppercase tracking-tight">
-              Komitmen <span className="text-[#C5A059]">Mutu & Keberlanjutan</span>
+              Empat Pilar <span className="text-[#C5A059]">Misi Perusahaan</span>
             </h3>
 
-            <div className="space-y-2.5 text-xs sm:text-sm text-slate-700 font-medium">
-              <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4.5 h-4.5 text-[#C5A059] shrink-0 mt-0.5" />
-                <span>Pengembangan kawasan villa resor bernilai investasi tinggi dengan standar konstruksi terbaik.</span>
-              </div>
-              <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4.5 h-4.5 text-[#C5A059] shrink-0 mt-0.5" />
-                <span>Penerapan manajemen hospitality bintang lima berbasis kepuasan pelanggan dan efisiensi operasional.</span>
-              </div>
-              <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4.5 h-4.5 text-[#C5A059] shrink-0 mt-0.5" />
-                <span>Penjagaan ekosistem lingkungan alam tropis Indonesia serta kontribusi positif bagi komunitas lokal.</span>
-              </div>
+            <div className="space-y-3 text-xs sm:text-sm text-slate-700 font-medium">
+              {COMPANY_DATA.misi.map((m, i) => (
+                <div key={i} className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4.5 h-4.5 text-[#C5A059] shrink-0 mt-0.5" />
+                  <span>{m}</span>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -180,11 +174,11 @@ export default function AboutPage({ onOpenContactModal }: AboutPageProps) {
         <div className="text-center max-w-3xl mx-auto space-y-2">
           <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-[#C5A059]/20 text-[#B8860B] text-xs font-bold uppercase border border-[#C5A059]/40">
             <Sparkles className="w-4 h-4 text-[#C5A059]" />
-            <span>CORE VALUES — 5 PILAR UTAMA</span>
+            <span>NILAI PERUSAHAAN / VALUES</span>
           </div>
 
           <h2 className="font-display font-black text-3xl sm:text-4xl text-[#0F382C] uppercase tracking-tight">
-            Nilai Perusahaan <span className="text-[#C5A059]">PT. Premier Cabin Internasional</span>
+            5 Nilai Perusahaan <span className="text-[#C5A059]">Utama</span>
           </h2>
         </div>
 

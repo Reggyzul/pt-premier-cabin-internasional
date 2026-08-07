@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, MessageSquareCode, Clock, Send, CheckCircle2, Building2, Headset } from 'lucide-react';
+import { MapPin, Phone, Mail, MessageSquareCode, Send, CheckCircle2, Headset } from 'lucide-react';
+import { COMPANY_DATA } from '../data/companyData';
 
 export default function ContactPage() {
   const [fullName, setFullName] = useState('');
   const [company, setCompany] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
-  const [serviceCategory, setServiceCategory] = useState('Pilot Project Saung Sare');
+  const [serviceCategory, setServiceCategory] = useState('Property Development');
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
@@ -18,7 +19,7 @@ export default function ContactPage() {
     }
 
     const waNumber = '6281234567890';
-    const textTemplate = `Halo *PT. PREMIER CABIN INTERNASIONAL* 👋
+    const textTemplate = `Halo *${COMPANY_DATA.name}* 👋
 
 Berikut formulir pengajuan / konsultasi saya:
 
@@ -26,13 +27,13 @@ Berikut formulir pengajuan / konsultasi saya:
 • Kategori Layanan: *${serviceCategory}*
 • Pesan / Pertanyaan: *${message || '-'}*
 
-👤 *DATA PEMESAN / INVESTOR:*
+👤 *DATA DIRI / INVESTOR:*
 • Nama Lengkap: *${fullName}*
 • Instansi / Perusahaan: *${company || '-'}*
 • No. WhatsApp / HP: *${phone}*
 • Email: *${email}*
 
-Mohon tim advisor PT. Premier Cabin Internasional memberikan respon resmi. Terima kasih!`;
+Mohon tim advisor ${COMPANY_DATA.name} dapat memberikan konsultasi & penawaran resmi. Terima kasih!`;
 
     window.open(`https://api.whatsapp.com/send?phone=${waNumber}&text=${encodeURIComponent(textTemplate)}`, '_blank');
     setSubmitted(true);
@@ -46,15 +47,15 @@ Mohon tim advisor PT. Premier Cabin Internasional memberikan respon resmi. Terim
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0F382C]/5 border border-[#C5A059]/40 text-[#B8860B] font-display font-extrabold text-xs tracking-widest uppercase shadow-xs">
             <Headset className="w-4 h-4 text-[#C5A059]" />
-            <span>CONTACT US — HUHUBUNGI KAMI</span>
+            <span>KONTAK & MEDIA SOSIAL</span>
           </div>
 
           <h1 className="font-display font-black text-3xl sm:text-5xl text-[#0F382C] uppercase tracking-tight leading-tight">
-            Kontak Resmi & <span className="text-[#C5A059]">Lokasi Kantor</span>
+            Kontak Resmi <span className="text-[#C5A059]">{COMPANY_DATA.shortName}</span>
           </h1>
 
           <p className="font-sans text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
-            Kantor pusat PT. Premier Cabin Internasional berlokasi di lokasi strategis Kebayoran Baru, Jakarta Selatan. Tim kami siap melayani diskusi kemitraan & investasi.
+            Kantor pusat berlokasi di lokasi bisnis strategis Blok M Square Office, Kebayoran Baru, Jakarta Selatan.
           </p>
         </div>
       </div>
@@ -68,11 +69,16 @@ Mohon tim advisor PT. Premier Cabin Internasional memberikan respon resmi. Terim
             <div className="p-3 rounded-2xl bg-[#0F382C]/5 border border-[#C5A059]/30 w-fit">
               <MapPin className="w-6 h-6 text-[#C5A059]" />
             </div>
-            <h3 className="font-display font-bold text-lg text-[#0F382C] uppercase">Alamat Kantor Pusat</h3>
-            <p className="font-sans text-xs text-slate-700 leading-relaxed font-medium">
-              <strong>BLOK M SQUARE OFFICE Lantai 6</strong><br />
-              Jl. Melawai V No.6, RT 03 / RW 01, Kel. Melawai, Kec. Kebayoran Baru, Jakarta Selatan, DKI Jakarta 12130
-            </p>
+            <h3 className="font-display font-bold text-lg text-[#0F382C] uppercase">Alamat Kantor Resmi</h3>
+            <div className="font-sans text-xs text-slate-700 leading-relaxed font-medium space-y-1">
+              <p className="font-bold text-[#0F382C]">{COMPANY_DATA.address.building}</p>
+              <p>{COMPANY_DATA.address.street}</p>
+              <p>RT | RW: {COMPANY_DATA.address.rtRw}</p>
+              <p>Kelurahan: {COMPANY_DATA.address.kelurahan}</p>
+              <p>Kecamatan: {COMPANY_DATA.address.kecamatan}</p>
+              <p>Kota / Provinsi: {COMPANY_DATA.address.city}, {COMPANY_DATA.address.province}</p>
+              <p>Kode Pos: {COMPANY_DATA.address.postalCode}</p>
+            </div>
           </div>
 
           {/* TELEPON FIXLINE & WA */}
@@ -81,10 +87,16 @@ Mohon tim advisor PT. Premier Cabin Internasional memberikan respon resmi. Terim
               <Phone className="w-6 h-6 text-[#C5A059]" />
             </div>
             <h3 className="font-display font-bold text-lg text-[#0F382C] uppercase">Kontak Direct & WA</h3>
-            <div className="font-sans text-xs text-slate-700 leading-relaxed font-medium space-y-1">
-              <p><strong>Fixline Kantor:</strong> 021 382 503 22</p>
-              <p><strong>WhatsApp Advisor:</strong> +62 812-3456-7890</p>
-              <p className="text-[11px] text-[#B8860B] font-bold">Layanan Reservasi & Konsultasi 24 Jam</p>
+            <div className="font-sans text-xs text-slate-700 leading-relaxed font-medium space-y-2">
+              <div>
+                <span className="text-[10px] text-slate-500 font-bold uppercase block">Fixline Kantor:</span>
+                <strong className="text-[#0F382C] text-sm">{COMPANY_DATA.contact.fixline}</strong>
+              </div>
+              <div>
+                <span className="text-[10px] text-slate-500 font-bold uppercase block">WhatsApp Advisor 24/7:</span>
+                <strong className="text-[#B8860B] text-sm">{COMPANY_DATA.contact.whatsapp}</strong>
+              </div>
+              <p className="text-[11px] text-[#B8860B] font-bold">Layanan Reservasi & Konsultasi Properti</p>
             </div>
           </div>
 
@@ -94,9 +106,15 @@ Mohon tim advisor PT. Premier Cabin Internasional memberikan respon resmi. Terim
               <Mail className="w-6 h-6 text-[#C5A059]" />
             </div>
             <h3 className="font-display font-bold text-lg text-[#0F382C] uppercase">Email & Jam Kerja</h3>
-            <div className="font-sans text-xs text-slate-700 leading-relaxed font-medium space-y-1">
-              <p><strong>Email Resmi:</strong> info@premiercabin.co.id</p>
-              <p><strong>Email Partnership:</strong> contact@premiercabin.co.id</p>
+            <div className="font-sans text-xs text-slate-700 leading-relaxed font-medium space-y-2">
+              <div>
+                <span className="text-[10px] text-slate-500 font-bold uppercase block">Email General:</span>
+                <strong className="text-[#0F382C] text-sm">{COMPANY_DATA.contact.email}</strong>
+              </div>
+              <div>
+                <span className="text-[10px] text-slate-500 font-bold uppercase block">Email Partnership:</span>
+                <strong className="text-[#0F382C] text-sm">{COMPANY_DATA.contact.emailPartnership}</strong>
+              </div>
               <p className="text-[11px] text-slate-500">Senin - Jumat: 08.00 - 17.00 WIB</p>
             </div>
           </div>
@@ -131,11 +149,11 @@ Mohon tim advisor PT. Premier Cabin Internasional memberikan respon resmi. Terim
                     onChange={(e) => setServiceCategory(e.target.value)}
                     className="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-xs font-semibold text-slate-800 focus:ring-2 focus:ring-[#C5A059]"
                   >
+                    <option value="Property Development">Property Development (Perumahan, Apartemen, Komersial & Properti Investasi)</option>
+                    <option value="Hospitality Management">Hospitality Management (Hotel, Resort, Villa & Akomodasi Premium)</option>
+                    <option value="Investment & Partnership">Investment & Partnership (Peluang Investasi Properti & Kerjasama Bisnis)</option>
+                    <option value="Travel & Lifestyle Services">Travel & Lifestyle Services (Paket Perjalanan & Pengalaman Lifestyle Eksklusif)</option>
                     <option value="Pilot Project Saung Sare">Pilot Project: Saung Sare</option>
-                    <option value="Property Development">Property Development</option>
-                    <option value="Hospitality Management">Hospitality Management</option>
-                    <option value="Investment & Partnership">Investment & Partnership</option>
-                    <option value="Travel & Lifestyle Services">Travel & Lifestyle Services</option>
                   </select>
                 </div>
 
@@ -226,7 +244,7 @@ Mohon tim advisor PT. Premier Cabin Internasional memberikan respon resmi. Terim
                 </div>
                 <h4 className="font-display font-black text-2xl text-[#0F382C]">Pesan Terkirim!</h4>
                 <p className="text-xs text-slate-600 max-w-md mx-auto">
-                  Terima kasih! Inquiries Anda telah berhasil dikirimkan ke WhatsApp resmi PT. Premier Cabin Internasional.
+                  Terima kasih! Inquiries Anda telah berhasil dikirimkan ke WhatsApp resmi {COMPANY_DATA.name}.
                 </p>
               </div>
             )}
@@ -235,7 +253,7 @@ Mohon tim advisor PT. Premier Cabin Internasional memberikan respon resmi. Terim
           {/* GOOGLE MAPS INTEGRATION (RIGHT) */}
           <div className="lg:col-span-6 bg-slate-100 relative min-h-[400px] flex flex-col">
             <iframe
-              title="Google Maps Lokasi PT Premier Cabin Internasional Blok M Square Office"
+              title={`Google Maps Lokasi ${COMPANY_DATA.name} Blok M Square Office`}
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.195029302636!2d106.79796037586884!3d-6.237998993750241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f168c4a45a33%3A0xb35a3962ec30026e!2sBlok%20M%20Square!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
               className="w-full h-full min-h-[450px] border-0"
               allowFullScreen={false}

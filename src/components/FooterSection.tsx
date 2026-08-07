@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, Mail, MapPin, Building2, ChevronRight, Headset, MessageSquareCode } from 'lucide-react';
+import { COMPANY_DATA } from '../data/companyData';
 
 interface FooterSectionProps {
   onNavigatePage: (page: 'home' | 'about' | 'saung-sare' | 'services' | 'contact') => void;
@@ -23,7 +24,7 @@ export default function FooterSection({ onNavigatePage, onOpenContactModal }: Fo
               Tertarik Berdiskusi Properti atau Investasi Resor?
             </h3>
             <p className="font-sans text-xs sm:text-sm text-slate-300">
-              Tim advisor PT. Premier Cabin Internasional siap melayani diskusi kemitraan dan informasi detail unit Saung Sare.
+              Tim advisor {COMPANY_DATA.name} siap melayani diskusi kemitraan dan informasi detail unit Saung Sare.
             </p>
           </div>
 
@@ -50,13 +51,13 @@ export default function FooterSection({ onNavigatePage, onOpenContactModal }: Fo
                   PREMIER CABIN <span className="text-[#C5A059]">INTERNASIONAL</span>
                 </span>
                 <span className="font-script text-xs text-[#C5A059] font-bold">
-                  "Mulih Ka Alam" — Holding Company
+                  "{COMPANY_DATA.tagline}" — {COMPANY_DATA.industry}
                 </span>
               </div>
             </div>
 
             <p className="font-sans text-xs text-slate-300 leading-relaxed max-w-sm font-medium">
-              PT. Premier Cabin Internasional adalah holding company pengembang properti ramah lingkungan dan pengelola hospitality eksklusif di Indonesia.
+              {COMPANY_DATA.description}
             </p>
 
             <div className="space-y-3 text-xs text-slate-300 font-medium">
@@ -64,28 +65,28 @@ export default function FooterSection({ onNavigatePage, onOpenContactModal }: Fo
                 <MapPin className="w-4.5 h-4.5 text-[#C5A059] shrink-0 mt-0.5" />
                 <span>
                   <strong>Alamat Kantor Resmi:</strong><br />
-                  BLOK M SQUARE OFFICE Lantai 6, Jl. Melawai V No.6, RT 03 / RW 01, Kel. Melawai, Kec. Kebayoran Baru, Jakarta Selatan, DKI Jakarta 12130
+                  {COMPANY_DATA.address.building}, {COMPANY_DATA.address.street}, RT/RW {COMPANY_DATA.address.rtRw}, Kel. {COMPANY_DATA.address.kelurahan}, Kec. {COMPANY_DATA.address.kecamatan}, {COMPANY_DATA.address.city}, {COMPANY_DATA.address.province} {COMPANY_DATA.address.postalCode}
                 </span>
               </div>
 
               <div className="flex items-center gap-3">
                 <Phone className="w-4.5 h-4.5 text-[#C5A059] shrink-0" />
                 <span>
-                  <strong>Fixline Kantor:</strong> 021 382 503 22
+                  <strong>Fixline Kantor:</strong> {COMPANY_DATA.contact.fixline}
                 </span>
               </div>
 
               <div className="flex items-center gap-3">
                 <MessageSquareCode className="w-4.5 h-4.5 text-[#C5A059] shrink-0" />
                 <span>
-                  <strong>WhatsApp 24/7:</strong> +62 812-3456-7890
+                  <strong>WhatsApp 24/7:</strong> {COMPANY_DATA.contact.whatsapp}
                 </span>
               </div>
 
               <div className="flex items-center gap-3">
                 <Mail className="w-4.5 h-4.5 text-[#C5A059] shrink-0" />
                 <span>
-                  <strong>Email Resmi:</strong> info@premiercabin.co.id / contact@premiercabin.co.id
+                  <strong>Email Resmi:</strong> {COMPANY_DATA.contact.email} / {COMPANY_DATA.contact.emailPartnership}
                 </span>
               </div>
             </div>
@@ -131,22 +132,12 @@ export default function FooterSection({ onNavigatePage, onOpenContactModal }: Fo
               Layanan Utama
             </h4>
             <div className="space-y-2 text-xs text-slate-300 font-medium">
-              <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                <strong className="text-white block">Property Development</strong>
-                <span className="text-[11px] text-slate-400">Perumahan, Komersial & Properti Investasi</span>
-              </div>
-              <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                <strong className="text-white block">Hospitality Management</strong>
-                <span className="text-[11px] text-slate-400">Pengelolaan Hotel, Resort & Villa 5-Star</span>
-              </div>
-              <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                <strong className="text-white block">Investment & Partnership</strong>
-                <span className="text-[11px] text-slate-400">Skema Kemitraan & Bagi Hasil Transparan</span>
-              </div>
-              <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                <strong className="text-white block">Travel & Lifestyle Services</strong>
-                <span className="text-[11px] text-slate-400">VIP Concierge & Perjalanan Eksklusif</span>
-              </div>
+              {COMPANY_DATA.services.map((s) => (
+                <div key={s.id} className="p-3 rounded-xl bg-white/5 border border-white/10">
+                  <strong className="text-white block">{s.title}</strong>
+                  <span className="text-[11px] text-slate-400">{s.description}</span>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -154,8 +145,8 @@ export default function FooterSection({ onNavigatePage, onOpenContactModal }: Fo
 
         {/* BOTTOM COPYRIGHT BAR */}
         <div className="pt-8 border-t border-white/10 text-center text-xs text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span>© 2026 PT. Premier Cabin Internasional. All Rights Reserved.</span>
-          <span className="font-script text-base text-[#C5A059]">"Mulih Ka Alam" — Holding Company</span>
+          <span>© 2026 {COMPANY_DATA.name}. All Rights Reserved.</span>
+          <span className="font-script text-base text-[#C5A059]">"{COMPANY_DATA.tagline}" — {COMPANY_DATA.industry}</span>
         </div>
 
       </div>

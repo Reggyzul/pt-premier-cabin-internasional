@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import AboutSection from './components/AboutSection';
-import PilotProjectSection from './components/PilotProjectSection';
-import CoreServicesSection from './components/CoreServicesSection';
-import ValuesSection from './components/ValuesSection';
 import FooterSection from './components/FooterSection';
-import SaungSareModal from './components/SaungSareModal';
 import ContactModal from './components/ContactModal';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import SaungSarePage from './pages/SaungSarePage';
+import ServicesPage from './pages/ServicesPage';
+import ContactPage from './pages/ContactPage';
 import { ChevronUp, MessageSquareCode } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function App() {
-  const [saungSareModalOpen, setSaungSareModalOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState<'home' | 'about' | 'saung-sare' | 'services' | 'contact'>('home');
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState('Pilot Project Saung Sare');
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -37,6 +36,11 @@ export default function App() {
     setContactModalOpen(true);
   };
 
+  const handleNavigatePage = (page: 'home' | 'about' | 'saung-sare' | 'services' | 'contact') => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -52,42 +56,39 @@ export default function App() {
   return (
     <div className="relative min-h-screen bg-[#FDFBF7] text-[#0F172A] selection:bg-[#0F382C] selection:text-[#F4EFE6] font-sans">
       
-      {/* NAVBAR */}
+      {/* NAVBAR WITH 5-PAGE ROUTING */}
       <Navbar
-        onOpenContact={() => handleOpenContactWithService('General Consultation')}
-        onOpenSaungSare={() => setSaungSareModalOpen(true)}
+        currentPage={currentPage}
+        setCurrentPage={handleNavigatePage}
+        onOpenContactModal={() => handleOpenContactWithService('General Consultation')}
       />
 
-      {/* MAIN HOME PAGE FLOW */}
+      {/* MAIN RENDERED PAGE FLOW */}
       <main className="relative z-10">
-        
-        {/* 1. HERO SECTION (First Impression) */}
-        <HeroSection onOpenSaungSare={() => setSaungSareModalOpen(true)} />
-
-        {/* 2. ABOUT US (Ringkasan Singkat) */}
-        <AboutSection />
-
-        {/* 3. FEATURED PILOT PROJECT (Showcase Utama: Saung Sare) */}
-        <PilotProjectSection onOpenSaungSareModal={() => setSaungSareModalOpen(true)} />
-
-        {/* 4. OUR CORE SERVICES (Layanan Utama: Property Dev, Hospitality Mgmt, Investment, Travel & Lifestyle) */}
-        <CoreServicesSection onSelectService={(title) => handleOpenContactWithService(title)} />
-
-        {/* 5. WHY CHOOSE US / VALUES (5 Pilar Utama) */}
-        <ValuesSection />
-
+        {currentPage === 'home' ? (
+          <HomePage
+            onNavigatePage={handleNavigatePage}
+            onOpenSaungSareModal={() => handleNavigatePage('saung-sare')}
+            onOpenContactModal={handleOpenContactWithService}
+          />
+        ) : currentPage === 'about' ? (
+          <AboutPage onOpenContactModal={() => handleOpenContactWithService('General Consultation')} />
+        ) : currentPage === 'saung-sare' ? (
+          <SaungSarePage onOpenContactModal={(svc) => handleOpenContactWithService(svc)} />
+        ) : currentPage === 'services' ? (
+          <ServicesPage onOpenContactModal={(svc) => handleOpenContactWithService(svc)} />
+        ) : (
+          <ContactPage />
+        )}
       </main>
 
-      {/* 6. FOOTER / CONTACT QUICK-ACCESS */}
-      <FooterSection onOpenContact={() => handleOpenContactWithService('Footer Inquiry')} />
-
-      {/* MODALS */}
-      <SaungSareModal
-        isOpen={saungSareModalOpen}
-        onClose={() => setSaungSareModalOpen(false)}
-        onOpenContact={() => handleOpenContactWithService('Pilot Project Saung Sare')}
+      {/* FOOTER SECTION */}
+      <FooterSection
+        onNavigatePage={handleNavigatePage}
+        onOpenContactModal={() => handleOpenContactWithService('Footer Inquiry')}
       />
 
+      {/* CONTACT & INQUIRY POPUP MODAL */}
       <ContactModal
         isOpen={contactModalOpen}
         onClose={() => setContactModalOpen(false)}

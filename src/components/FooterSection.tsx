@@ -2,12 +2,13 @@ import React from 'react';
 import { Phone, Mail, MapPin, Building2, ChevronRight, Headset, MessageSquareCode } from 'lucide-react';
 
 interface FooterSectionProps {
-  onOpenContact: () => void;
+  onNavigatePage: (page: 'home' | 'about' | 'saung-sare' | 'services' | 'contact') => void;
+  onOpenContactModal: () => void;
 }
 
-export default function FooterSection({ onOpenContact }: FooterSectionProps) {
+export default function FooterSection({ onNavigatePage, onOpenContactModal }: FooterSectionProps) {
   return (
-    <footer id="contact" className="bg-[#051A14] text-white pt-20 pb-8 border-t border-[#C5A059]/30 relative overflow-hidden">
+    <footer id="contact" className="bg-[#051A14] text-white pt-20 pb-8 border-t border-[#C5A059]/30 relative overflow-hidden text-left">
       
       {/* Top Accent Gradient Bar */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#C5A059] via-[#D4AF37] to-[#B8860B]" />
@@ -15,9 +16,9 @@ export default function FooterSection({ onOpenContact }: FooterSectionProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
         
         {/* UPPER CALLOUT CONTACT QUICK-ACCESS */}
-        <div className="bg-white/5 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-[#C5A059]/30 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 text-left">
+        <div className="bg-white/5 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-[#C5A059]/30 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2">
-            <span className="font-script text-3xl text-[#C5A059] block">Layanan Konsultasi 24/7</span>
+            <span className="font-script text-3xl text-[#C5A059] block">Layanan Konsultasi & Inquiries</span>
             <h3 className="font-display font-black text-2xl sm:text-3xl text-white uppercase tracking-tight">
               Tertarik Berdiskusi Properti atau Investasi Resor?
             </h3>
@@ -27,7 +28,7 @@ export default function FooterSection({ onOpenContact }: FooterSectionProps) {
           </div>
 
           <button
-            onClick={onOpenContact}
+            onClick={onOpenContactModal}
             className="bg-gradient-to-r from-[#C5A059] via-[#D4AF37] to-[#B8860B] hover:from-[#D4AF37] hover:to-[#C5A059] text-[#051A14] font-sans font-black text-xs uppercase tracking-wider px-7 py-4 rounded-2xl shadow-xl transition-all flex items-center gap-2 shrink-0 cursor-pointer shine-effect"
           >
             <Headset className="w-5 h-5 text-[#051A14]" />
@@ -36,9 +37,9 @@ export default function FooterSection({ onOpenContact }: FooterSectionProps) {
         </div>
 
         {/* CORE FOOTER GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 text-left pt-4">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pt-4">
           
-          {/* COLUMN 1: BRAND LOGO & ADDRESS */}
+          {/* COLUMN 1: BRAND LOGO & OFFICIAL ADDRESS */}
           <div className="md:col-span-5 space-y-6">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0F382C] to-[#051A14] border border-[#C5A059]/40 flex items-center justify-center text-[#C5A059]">
@@ -49,35 +50,35 @@ export default function FooterSection({ onOpenContact }: FooterSectionProps) {
                   PREMIER CABIN <span className="text-[#C5A059]">INTERNASIONAL</span>
                 </span>
                 <span className="font-script text-xs text-[#C5A059] font-bold">
-                  "Mulih Ka Alam" — Eco Luxury Property & Hospitality
+                  "Mulih Ka Alam" — Holding Company
                 </span>
               </div>
             </div>
 
             <p className="font-sans text-xs text-slate-300 leading-relaxed max-w-sm font-medium">
-              PT. Premier Cabin Internasional adalah pengembang properti ramah lingkungan dan pengelola hospitality eksklusif di Indonesia.
+              PT. Premier Cabin Internasional adalah holding company pengembang properti ramah lingkungan dan pengelola hospitality eksklusif di Indonesia.
             </p>
 
             <div className="space-y-3 text-xs text-slate-300 font-medium">
               <div className="flex items-start gap-3">
                 <MapPin className="w-4.5 h-4.5 text-[#C5A059] shrink-0 mt-0.5" />
                 <span>
-                  <strong>Alamat Kantor Pusat:</strong><br />
-                  Premier Cabin Building, Jl. Raya Utama No. 88, Indonesia
+                  <strong>Alamat Kantor Resmi:</strong><br />
+                  BLOK M SQUARE OFFICE Lantai 6, Jl. Melawai V No.6, RT 03 / RW 01, Kel. Melawai, Kec. Kebayoran Baru, Jakarta Selatan, DKI Jakarta 12130
                 </span>
               </div>
 
               <div className="flex items-center gap-3">
                 <Phone className="w-4.5 h-4.5 text-[#C5A059] shrink-0" />
                 <span>
-                  <strong>Telepon Fixline:</strong> +62 (021) 8899-7766
+                  <strong>Fixline Kantor:</strong> 021 382 503 22
                 </span>
               </div>
 
               <div className="flex items-center gap-3">
                 <MessageSquareCode className="w-4.5 h-4.5 text-[#C5A059] shrink-0" />
                 <span>
-                  <strong>WhatsApp Resmi:</strong> +62 812-3456-7890
+                  <strong>WhatsApp 24/7:</strong> +62 812-3456-7890
                 </span>
               </div>
 
@@ -93,33 +94,33 @@ export default function FooterSection({ onOpenContact }: FooterSectionProps) {
           {/* COLUMN 2: QUICK NAVIGATION LINKS */}
           <div className="md:col-span-3 space-y-4">
             <h4 className="font-display font-bold text-sm text-[#C5A059] uppercase tracking-widest border-l-2 border-[#C5A059] pl-2">
-              Navigasi Cepat
+              Navigasi Halaman
             </h4>
             <ul className="space-y-2.5 text-xs text-slate-300 font-medium">
               <li>
-                <a href="#home" className="hover:text-[#C5A059] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3.5 h-3.5 text-[#C5A059]" /> 1. Hero Section (Home)
-                </a>
+                <button onClick={() => onNavigatePage('home')} className="hover:text-[#C5A059] transition-colors flex items-center gap-1 cursor-pointer">
+                  <ChevronRight className="w-3.5 h-3.5 text-[#C5A059]" /> 1. Homepage (Utama)
+                </button>
               </li>
               <li>
-                <a href="#about" className="hover:text-[#C5A059] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3.5 h-3.5 text-[#C5A059]" /> 2. About Us & Visi Misi
-                </a>
+                <button onClick={() => onNavigatePage('about')} className="hover:text-[#C5A059] transition-colors flex items-center gap-1 cursor-pointer">
+                  <ChevronRight className="w-3.5 h-3.5 text-[#C5A059]" /> 2. About Us (Tentang Kami)
+                </button>
               </li>
               <li>
-                <a href="#pilot-project" className="hover:text-[#C5A059] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3.5 h-3.5 text-[#C5A059]" /> 3. Pilot Project: Saung Sare
-                </a>
+                <button onClick={() => onNavigatePage('saung-sare')} className="hover:text-[#C5A059] transition-colors flex items-center gap-1 cursor-pointer">
+                  <ChevronRight className="w-3.5 h-3.5 text-[#C5A059]" /> 3. Saung Sare Showcase
+                </button>
               </li>
               <li>
-                <a href="#services" className="hover:text-[#C5A059] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3.5 h-3.5 text-[#C5A059]" /> 4. Our Core Services
-                </a>
+                <button onClick={() => onNavigatePage('services')} className="hover:text-[#C5A059] transition-colors flex items-center gap-1 cursor-pointer">
+                  <ChevronRight className="w-3.5 h-3.5 text-[#C5A059]" /> 4. Services (Layanan Utama)
+                </button>
               </li>
               <li>
-                <a href="#values" className="hover:text-[#C5A059] transition-colors flex items-center gap-1">
-                  <ChevronRight className="w-3.5 h-3.5 text-[#C5A059]" /> 5. Why Choose Us / Values
-                </a>
+                <button onClick={() => onNavigatePage('contact')} className="hover:text-[#C5A059] transition-colors flex items-center gap-1 cursor-pointer">
+                  <ChevronRight className="w-3.5 h-3.5 text-[#C5A059]" /> 5. Contact Us (Kontak Kami)
+                </button>
               </li>
             </ul>
           </div>
@@ -132,19 +133,19 @@ export default function FooterSection({ onOpenContact }: FooterSectionProps) {
             <div className="space-y-2 text-xs text-slate-300 font-medium">
               <div className="p-3 rounded-xl bg-white/5 border border-white/10">
                 <strong className="text-white block">Property Development</strong>
-                <span className="text-[11px] text-slate-400">Konstruksi & Masterplan Eco Villa</span>
+                <span className="text-[11px] text-slate-400">Perumahan, Komersial & Properti Investasi</span>
               </div>
               <div className="p-3 rounded-xl bg-white/5 border border-white/10">
                 <strong className="text-white block">Hospitality Management</strong>
-                <span className="text-[11px] text-slate-400">Manajemen Resor & Villa 5-Star</span>
+                <span className="text-[11px] text-slate-400">Pengelolaan Hotel, Resort & Villa 5-Star</span>
               </div>
               <div className="p-3 rounded-xl bg-white/5 border border-white/10">
                 <strong className="text-white block">Investment & Partnership</strong>
-                <span className="text-[11px] text-slate-400">Kemitraan & Bagi Hasil Properti</span>
+                <span className="text-[11px] text-slate-400">Skema Kemitraan & Bagi Hasil Transparan</span>
               </div>
               <div className="p-3 rounded-xl bg-white/5 border border-white/10">
                 <strong className="text-white block">Travel & Lifestyle Services</strong>
-                <span className="text-[11px] text-slate-400">VIP Concierge & Custom Trip</span>
+                <span className="text-[11px] text-slate-400">VIP Concierge & Perjalanan Eksklusif</span>
               </div>
             </div>
           </div>
@@ -154,7 +155,7 @@ export default function FooterSection({ onOpenContact }: FooterSectionProps) {
         {/* BOTTOM COPYRIGHT BAR */}
         <div className="pt-8 border-t border-white/10 text-center text-xs text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-3">
           <span>© 2026 PT. Premier Cabin Internasional. All Rights Reserved.</span>
-          <span className="font-script text-base text-[#C5A059]">"Mulih Ka Alam" — Harmonious Luxury Living</span>
+          <span className="font-script text-base text-[#C5A059]">"Mulih Ka Alam" — Holding Company</span>
         </div>
 
       </div>

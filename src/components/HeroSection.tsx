@@ -43,19 +43,22 @@ export default function HeroSection({ onOpenSaungSare }: HeroSectionProps) {
         </p>
 
         {/* ACTION BUTTON & SUBTITLE */}
-        <div className="pt-3 sm:pt-6 flex flex-col items-center justify-center gap-2 sm:gap-2.5">
+        <div className="pt-4 sm:pt-6 flex flex-col items-center justify-center">
+          {/* BUTTON KOTAK */}
           <a
             href="#pilot-project"
             onClick={handleScrollToPilot}
-            className="border border-white/90 hover:border-white hover:bg-white hover:text-[#111817] text-white font-sans text-[10px] sm:text-xs tracking-[0.15em] sm:tracking-[0.2em] uppercase px-5 sm:px-8 py-2.5 sm:py-3.5 transition-all duration-300 shadow-2xl cursor-pointer rounded-none"
+            className="border border-white/90 hover:border-white hover:bg-white hover:text-[#111817] text-white font-sans text-[10px] sm:text-xs tracking-[0.18em] sm:tracking-[0.22em] uppercase px-6 sm:px-9 py-3 sm:py-3.5 transition-all duration-300 shadow-2xl cursor-pointer rounded-none"
           >
             Saung Sare Project Exploration
           </a>
-          <div className="flex flex-col items-center justify-center pt-1 text-center">
-            <span className="font-sans font-light text-[9px] sm:text-[10px] text-white/75 tracking-[0.2em] uppercase drop-shadow-sm">
+
+          {/* SUBTITLE CONTAINER - SPACING PROFESIONAL DARI KOTAK */}
+          <div className="mt-5 sm:mt-6 flex flex-col items-center justify-center text-center">
+            <span className="font-sans font-light text-[8px] sm:text-[9px] text-white/70 tracking-[0.25em] sm:tracking-[0.3em] uppercase drop-shadow-sm mb-0.5">
               DEVELOPMENT BY
             </span>
-            <span className="font-sans font-bold text-[10px] sm:text-[12px] text-white tracking-[0.15em] sm:tracking-[0.2em] uppercase drop-shadow-md mt-0.5">
+            <span className="font-sans font-bold text-[10px] sm:text-[12px] md:text-[13px] text-white tracking-[0.18em] sm:tracking-[0.22em] uppercase drop-shadow-lg">
               JBI WORLD HOLDING COMPANY
             </span>
           </div>

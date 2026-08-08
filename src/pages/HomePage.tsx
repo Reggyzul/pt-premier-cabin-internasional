@@ -3,7 +3,6 @@ import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
 import PilotProjectSection from '../components/PilotProjectSection';
 import CoreServicesSection from '../components/CoreServicesSection';
-import ValuesSection from '../components/ValuesSection';
 
 interface HomePageProps {
   onNavigatePage: (page: 'home' | 'about' | 'saung-sare' | 'services' | 'contact') => void;
@@ -31,9 +30,6 @@ export default function HomePage({ onNavigatePage, onOpenSaungSareModal, onOpenC
 
         {/* 4. OUR CORE SERVICES (Overview 4 Pilar Utama) */}
         <CoreServicesSection onSelectService={(title) => onOpenContactModal(title)} />
-
-        {/* 5. WHY CHOOSE US / VALUES (5 Pilar Utama Nilai Perusahaan) */}
-        <ValuesSection />
 
       </div>
 

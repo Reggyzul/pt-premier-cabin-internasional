@@ -61,6 +61,35 @@ export default function AboutPage({ onOpenContactModal }: AboutPageProps) {
           </div>
         </div>
 
+        {/* LAYANAN UTAMA PERUSAHAAN */}
+        <div className="space-y-8">
+          <div className="text-center max-w-xl mx-auto">
+            <span className="text-[#D4AF37] uppercase tracking-widest text-xs font-semibold">Pilar Bisnis</span>
+            <h3 className="text-3xl font-serif font-bold text-[#1B3B2B] mt-1">Layanan Utama Perusahaan</h3>
+            <p className="text-gray-600 text-sm mt-2 leading-relaxed">
+              Solusi properti, hospitality, investasi, dan pengalaman gaya hidup terpadu berstandar internasional.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {COMPANY_DATA.services.map((svc, idx) => (
+              <div
+                key={svc.id}
+                className="bg-white p-7 rounded-2xl shadow-sm border border-gray-100 space-y-3 hover:shadow-md hover:border-[#D4AF37]/50 transition-all duration-300 flex flex-col justify-between"
+              >
+                <div className="space-y-3">
+                  <div className="w-12 h-12 bg-[#1B3B2B]/10 text-[#1B3B2B] rounded-xl flex items-center justify-center font-bold text-lg font-serif">
+                    0{idx + 1}
+                  </div>
+                  <h4 className="font-serif font-bold text-xl text-[#1B3B2B]">{svc.title}</h4>
+                  <p className="text-xs font-semibold text-[#D4AF37]">{svc.subtitle}</p>
+                  <p className="text-xs text-gray-600 leading-relaxed">{svc.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* CORE VALUES */}
         <div className="space-y-8">
           <div className="text-center max-w-xl mx-auto">

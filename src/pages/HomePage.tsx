@@ -30,14 +30,14 @@ export default function HomePage({ onNavigatePage, onOpenSaungSareModal, onOpenC
       {/* 3. FULL-WIDTH CINEMATIC IMAGE STORY (LIVING WITH THE LAND) */}
       <FullWidthImageStorySection />
 
-      {/* 4. CABIN EXPERIENCE */}
-      <CabinExperienceSection />
+      {/* 4. PROJECTS SHOWCASE (PENGEMBANGAN KAMI - SAUNG SARE) */}
+      <ProjectShowcaseSection onOpenSaungSareModal={onOpenSaungSareModal} />
 
       {/* 5. NATURE & SUSTAINABILITY */}
       <SustainabilitySection />
 
-      {/* 6. PROJECTS SHOWCASE (PENGEMBANGAN KAMI - SAUNG SARE) */}
-      <ProjectShowcaseSection onOpenSaungSareModal={onOpenSaungSareModal} />
+      {/* 6. CABIN EXPERIENCE (PENGALAMAN CABIN) */}
+      <CabinExperienceSection />
 
       {/* 10. VALUES (EDITORIAL INTERACTIVE VERTICAL LIST) */}
       <ValuesEditorialSection />

@@ -27,7 +27,10 @@ export default function HomePage({ onNavigatePage, onOpenSaungSareModal, onOpenC
       {/* 2. STORYTELLING INTRO */}
       <StoryIntroSection onNavigatePage={onNavigatePage} />
 
-      {/* 3. FULL-WIDTH CINEMATIC IMAGE STORY */}
+      {/* 3. PROJECTS SHOWCASE (PENGEMBANGAN KAMI - SAUNG SARE) */}
+      <ProjectShowcaseSection onOpenSaungSareModal={onOpenSaungSareModal} />
+
+      {/* 4. FULL-WIDTH CINEMATIC IMAGE STORY (LIVING WITH THE LAND) */}
       <FullWidthImageStorySection />
 
       {/* 5. CABIN EXPERIENCE */}
@@ -35,9 +38,6 @@ export default function HomePage({ onNavigatePage, onOpenSaungSareModal, onOpenC
 
       {/* 6. NATURE & SUSTAINABILITY */}
       <SustainabilitySection />
-
-      {/* 7. PROJECTS SHOWCASE (SAUNG SARE) */}
-      <ProjectShowcaseSection onOpenSaungSareModal={onOpenSaungSareModal} />
 
       {/* 10. VALUES (EDITORIAL INTERACTIVE VERTICAL LIST) */}
       <ValuesEditorialSection />

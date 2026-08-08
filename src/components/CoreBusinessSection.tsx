@@ -70,7 +70,8 @@ export default function CoreBusinessSection({ onOpenContactModal }: CoreBusiness
                 <div className="relative aspect-[16/10] overflow-hidden rounded-none filter brightness-90 group-hover:brightness-100 transition-all duration-500">
                   <img
                     src={item.image}
-                    alt={item.data.title}
+                    alt={`Premier Cabin Internasional - ${item.data.title}`}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>

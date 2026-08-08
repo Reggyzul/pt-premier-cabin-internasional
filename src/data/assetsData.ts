@@ -36,8 +36,8 @@ export const SITE_IMAGES = {
   saungSareHero: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1800&q=90',
   saungSareInterior: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1800&q=90',
 
-  // 10. TRAVEL & LIFESTYLE EXPERIENCE
-  travelLifestyle: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=90',
+  // 10. TRAVEL & LIFESTYLE EXPERIENCE (4K Luxury Eco Resort Infinity Pool & Destination Photography)
+  travelLifestyle: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=2000&q=95',
 
   // 11. VALUES BACKGROUND DETAILS
   valuesDetail1: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=1200&q=90',

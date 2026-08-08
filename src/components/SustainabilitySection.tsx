@@ -21,9 +21,14 @@ export default function SustainabilitySection() {
 
       {/* EDITORIAL CONTENT */}
       <div className="relative z-20 text-center max-w-4xl px-6 space-y-6">
-        <span className="inline-block text-[10px] sm:text-xs font-sans font-semibold tracking-[0.35em] uppercase text-[#C9A227]">
-          {t.label}
-        </span>
+        <div className="space-y-2">
+          <span className="block text-xs sm:text-sm font-sans font-bold tracking-[0.35em] uppercase text-[#C9A227]">
+            {t.superTitle || 'MY CABIN PROSPECTUS'}
+          </span>
+          <span className="block text-[10px] sm:text-xs font-sans font-semibold tracking-[0.3em] uppercase text-white/80">
+            {t.label}
+          </span>
+        </div>
 
         <h2 className="font-serif font-normal text-3xl sm:text-6xl md:text-7xl text-[#F5F1E8] leading-tight tracking-tight drop-shadow-2xl">
           "{t.headline}"

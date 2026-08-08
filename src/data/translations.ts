@@ -76,7 +76,8 @@ export const TRANSLATIONS = {
       cta: 'JELAJAHI PELUANG INVESTASI',
     },
     sustainability: {
-      label: 'ALAM & KEBERLANJUTAN',
+      superTitle: 'MY CABIN PROSPECTUS',
+      label: 'ESCAPE TO NATURE',
       headline: 'Membangun bersama alam, bukan merusaknya.',
       subtext: 'Kami meyakini pengembangan yang bertanggung jawab dimulai dari rasa hormat terhadap kelestarian tanah. Pendekatan kami memperhitungkan lanskap, material alami, efisiensi energi, dan dampak sosial.',
     },
@@ -227,7 +228,8 @@ export const TRANSLATIONS = {
       cta: 'EXPLORE INVESTMENT OPPORTUNITIES',
     },
     sustainability: {
-      label: 'NATURE & SUSTAINABILITY',
+      superTitle: 'MY CABIN PROSPECTUS',
+      label: 'ESCAPE TO NATURE',
       headline: 'Built with nature, not against it.',
       subtext: 'We believe responsible development begins with respect for the land. Our approach considers landscape, natural materials, energy efficiency, and community impact.',
     },

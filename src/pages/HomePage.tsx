@@ -4,9 +4,7 @@ import StoryIntroSection from '../components/StoryIntroSection';
 import FullWidthImageStorySection from '../components/FullWidthImageStorySection';
 import CoreBusinessSection from '../components/CoreBusinessSection';
 import CabinExperienceSection from '../components/CabinExperienceSection';
-import InvestmentSection from '../components/InvestmentSection';
 import SustainabilitySection from '../components/SustainabilitySection';
-import DestinationsSection from '../components/DestinationsSection';
 import ProjectShowcaseSection from '../components/ProjectShowcaseSection';
 import ValuesEditorialSection from '../components/ValuesEditorialSection';
 import VisionMissionSection from '../components/VisionMissionSection';
@@ -40,16 +38,10 @@ export default function HomePage({ onNavigatePage, onOpenSaungSareModal, onOpenC
       {/* 5. CABIN EXPERIENCE */}
       <CabinExperienceSection />
 
-      {/* 6. INVESTMENT STORY */}
-      <InvestmentSection onOpenContactModal={onOpenContactModal} />
-
-      {/* 7. NATURE & SUSTAINABILITY */}
+      {/* 6. NATURE & SUSTAINABILITY */}
       <SustainabilitySection />
 
-      {/* 8. INDONESIAN DESTINATIONS */}
-      <DestinationsSection onOpenContactModal={onOpenContactModal} />
-
-      {/* 9. PROJECTS SHOWCASE (SAUNG SARE) */}
+      {/* 7. PROJECTS SHOWCASE (SAUNG SARE) */}
       <ProjectShowcaseSection onOpenSaungSareModal={onOpenSaungSareModal} />
 
       {/* 10. VALUES (EDITORIAL INTERACTIVE VERTICAL LIST) */}

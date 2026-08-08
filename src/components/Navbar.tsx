@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Globe, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { TRANSLATIONS } from '../data/translations';
 
@@ -10,7 +10,7 @@ interface NavbarProps {
 }
 
 export default function Navbar({ currentPage, setCurrentPage, onOpenContactModal }: NavbarProps) {
-  const { language, toggleLanguage } = useLanguage();
+  const { language } = useLanguage();
   const t = TRANSLATIONS[language].nav;
 
   const [scrolled, setScrolled] = useState(false);
@@ -45,13 +45,14 @@ export default function Navbar({ currentPage, setCurrentPage, onOpenContactModal
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
             ? 'bg-[#0B241C]/90 backdrop-blur-md py-4 border-b border-[#C9A227]/20 shadow-2xl'
-            : 'bg-gradient-to-b from-black/70 via-black/30 to-transparent py-6'
+            : 'bg-gradient-to-b from-black/75 via-black/35 to-transparent py-6'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 flex items-center justify-between">
+        {/* MATHEMATICALLY CENTERED 3-COLUMN GRID */}
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 grid grid-cols-3 items-center">
           
-          {/* LEFT: MENU TRIGGER BUTTON */}
-          <div className="flex items-center gap-6">
+          {/* LEFT COLUMN: MENU TRIGGER BUTTON */}
+          <div className="flex items-center justify-start">
             <button
               onClick={() => setMenuOpen(true)}
               className="flex items-center gap-2.5 text-white/90 hover:text-[#C9A227] transition-colors cursor-pointer group"
@@ -64,37 +65,26 @@ export default function Navbar({ currentPage, setCurrentPage, onOpenContactModal
             </button>
           </div>
 
-          {/* CENTER: BRAND TITLE LOGO */}
-          <button
-            onClick={() => handleNavClick('home')}
-            className="text-center cursor-pointer group focus:outline-none"
-          >
-            <span className="block font-serif text-lg sm:text-2xl md:text-3xl text-white tracking-wider font-semibold group-hover:text-[#C9A227] transition-colors leading-none">
-              Premier Cabin
-            </span>
-            <span className="block text-[8px] sm:text-[9px] text-[#C9A227] uppercase tracking-[0.35em] font-sans font-medium mt-1">
-              {t.brandSub}
-            </span>
-          </button>
-
-          {/* RIGHT: LANGUAGE SWITCHER & CONTACT CTA */}
-          <div className="flex items-center gap-4 sm:gap-6">
-            {/* ID | EN LANGUAGE SWITCHER */}
+          {/* CENTER COLUMN: PRECISELY CENTERED BRAND TITLE LOGO */}
+          <div className="flex justify-center text-center">
             <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-1.5 text-[10px] sm:text-xs font-sans tracking-[0.2em] font-semibold text-white/80 hover:text-[#C9A227] transition-colors cursor-pointer border border-white/20 hover:border-[#C9A227]/60 px-2.5 py-1 rounded-full"
-              title="Switch Language (Bahasa Indonesia / English)"
+              onClick={() => handleNavClick('home')}
+              className="text-center cursor-pointer group focus:outline-none flex flex-col items-center"
             >
-              <Globe className="w-3.5 h-3.5 text-[#C9A227]" />
-              <span className={language === 'ID' ? 'text-[#C9A227] font-bold' : 'text-white/60'}>ID</span>
-              <span className="text-white/40">|</span>
-              <span className={language === 'EN' ? 'text-[#C9A227] font-bold' : 'text-white/60'}>EN</span>
+              <span className="block font-serif text-lg sm:text-2xl md:text-3xl text-white tracking-wider font-semibold group-hover:text-[#C9A227] transition-colors leading-none">
+                Premier Cabin
+              </span>
+              <span className="block text-[8px] sm:text-[9px] text-[#C9A227] uppercase tracking-[0.35em] font-sans font-medium mt-1">
+                INTERNASIONAL
+              </span>
             </button>
+          </div>
 
-            {/* CONTACT CTA BUTTON */}
+          {/* RIGHT COLUMN: CONTACT CTA BUTTON ONLY */}
+          <div className="flex items-center justify-end">
             <button
               onClick={() => onOpenContactModal()}
-              className="hidden md:inline-flex border border-[#C9A227]/80 hover:bg-[#C9A227] hover:text-[#0B241C] text-white font-sans text-[10px] uppercase tracking-[0.2em] px-5 py-2 transition-all duration-300 shadow-lg cursor-pointer"
+              className="border border-[#C9A227]/80 hover:bg-[#C9A227] hover:text-[#0B241C] text-white font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.2em] px-3.5 sm:px-5 py-1.5 sm:py-2 transition-all duration-300 shadow-lg cursor-pointer"
             >
               {t.contact}
             </button>
@@ -111,7 +101,7 @@ export default function Navbar({ currentPage, setCurrentPage, onOpenContactModal
           <div className="flex items-center justify-between max-w-7xl mx-auto w-full">
             <div className="text-left">
               <span className="font-serif text-xl text-white font-semibold">Premier Cabin</span>
-              <span className="block text-[8px] text-[#C9A227] tracking-[0.3em] uppercase">{t.brandSub}</span>
+              <span className="block text-[8px] text-[#C9A227] tracking-[0.3em] uppercase">INTERNASIONAL</span>
             </div>
 
             <button

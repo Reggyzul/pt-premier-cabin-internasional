@@ -2,7 +2,6 @@ import React from 'react';
 import HeroSection from '../components/HeroSection';
 import StoryIntroSection from '../components/StoryIntroSection';
 import FullWidthImageStorySection from '../components/FullWidthImageStorySection';
-import CoreBusinessSection from '../components/CoreBusinessSection';
 import CabinExperienceSection from '../components/CabinExperienceSection';
 import SustainabilitySection from '../components/SustainabilitySection';
 import ProjectShowcaseSection from '../components/ProjectShowcaseSection';
@@ -31,9 +30,6 @@ export default function HomePage({ onNavigatePage, onOpenSaungSareModal, onOpenC
 
       {/* 3. FULL-WIDTH CINEMATIC IMAGE STORY */}
       <FullWidthImageStorySection />
-
-      {/* 4. CORE BUSINESS (3 DIMENSIONS) */}
-      <CoreBusinessSection onOpenContactModal={onOpenContactModal} />
 
       {/* 5. CABIN EXPERIENCE */}
       <CabinExperienceSection />

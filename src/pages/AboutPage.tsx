@@ -1,6 +1,7 @@
 import React from 'react';
 import { COMPANY_DATA } from '../data/companyData';
 import { SITE_IMAGES } from '../data/assetsData';
+import CoreBusinessSection from '../components/CoreBusinessSection';
 import { useLanguage } from '../context/LanguageContext';
 import { TRANSLATIONS } from '../data/translations';
 
@@ -50,36 +51,8 @@ export default function AboutPage({ onOpenContactModal }: AboutPageProps) {
           </div>
         </div>
 
-        {/* LAYANAN UTAMA PERUSAHAAN */}
-        <div className="space-y-12">
-          <div className="max-w-xl space-y-2">
-            <span className="text-[#C9A227] uppercase tracking-[0.3em] text-xs font-semibold">
-              {t.coreBusiness.label}
-            </span>
-            <h3 className="text-3xl sm:text-4xl font-serif font-normal text-[#F5F1E8]">
-              {t.coreBusiness.headline}
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {COMPANY_DATA.services.map((svc, idx) => (
-              <div
-                key={svc.id}
-                onClick={() => onOpenContactModal && onOpenContactModal(svc.title)}
-                className="bg-white/5 p-8 border border-white/10 hover:border-[#C9A227] transition-all duration-500 flex flex-col justify-between cursor-pointer group"
-              >
-                <div className="space-y-4">
-                  <span className="font-serif text-2xl text-[#C9A227] font-semibold block">
-                    0{idx + 1}
-                  </span>
-                  <h4 className="font-serif text-xl text-[#F5F1E8] group-hover:text-[#C9A227] transition-colors">{svc.title}</h4>
-                  <p className="text-xs font-semibold text-[#C9A227] font-sans uppercase tracking-wider">{svc.subtitle}</p>
-                  <p className="text-xs text-[#D8CDBB] font-light leading-relaxed">{svc.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* LAYANAN UTAMA PERUSAHAAN (3 DIMENSI TERPADU LENGKAP WITH PHOTOGRAPHY) */}
+        <CoreBusinessSection onOpenContactModal={onOpenContactModal} />
 
         {/* VISI & MISI */}
         <div className="grid md:grid-cols-2 gap-12 items-start border-t border-white/10 pt-16">

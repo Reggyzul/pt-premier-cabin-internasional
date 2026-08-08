@@ -25,6 +25,10 @@ export default function CoreBusinessSection({ onOpenContactModal }: CoreBusiness
       data: t.p03,
       image: SITE_IMAGES.investmentHQ,
     },
+    {
+      data: t.p04,
+      image: SITE_IMAGES.travelLifestyle,
+    },
   ];
 
   return (
@@ -45,8 +49,8 @@ export default function CoreBusinessSection({ onOpenContactModal }: CoreBusiness
           </h2>
         </div>
 
-        {/* THREE COLUMNS ASYMMETRIC GRID */}
-        <div className="grid md:grid-cols-3 gap-10 lg:gap-14 items-stretch">
+        {/* FOUR COLUMNS ASYMMETRIC GRID */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 items-stretch">
           {businessList.map((item) => (
             <div
               key={item.data.num}
@@ -73,10 +77,10 @@ export default function CoreBusinessSection({ onOpenContactModal }: CoreBusiness
 
                 {/* TITLE & DESCRIPTION */}
                 <div className="space-y-2">
-                  <h3 className="font-serif text-2xl text-[#F5F1E8] group-hover:text-[#C9A227] transition-colors">
+                  <h3 className="font-serif text-xl sm:text-2xl text-[#F5F1E8] group-hover:text-[#C9A227] transition-colors leading-tight">
                     {item.data.title}
                   </h3>
-                  <p className="font-sans font-light text-xs sm:text-sm text-[#D8CDBB] leading-relaxed">
+                  <p className="font-sans font-light text-xs text-[#D8CDBB] leading-relaxed">
                     {item.data.desc}
                   </p>
                 </div>

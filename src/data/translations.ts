@@ -33,7 +33,7 @@ export const TRANSLATIONS = {
     },
     coreBusiness: {
       label: 'LAYANAN UTAMA',
-      headline: 'Tiga dimensi. Satu visi terpadu.',
+      headline: 'Empat dimensi. Satu visi terpadu.',
       p01: {
         num: '01',
         title: 'PROPERTI',
@@ -48,6 +48,11 @@ export const TRANSLATIONS = {
         num: '03',
         title: 'INVESTASI',
         desc: 'Membuka peluang kemitraan yang menghubungkan daya tarik gaya hidup dengan kepastian nilai investasi berkelanjutan.',
+      },
+      p04: {
+        num: '04',
+        title: 'TRAVEL & LIFESTYLE',
+        desc: 'Menghadirkan pengalaman perjalanan eksklusif, keindahan destinasi, dan gaya hidup bernilai tinggi.',
       },
     },
     cabinExperience: {
@@ -179,7 +184,7 @@ export const TRANSLATIONS = {
     },
     coreBusiness: {
       label: 'OUR BUSINESS',
-      headline: 'Three dimensions. One integrated vision.',
+      headline: 'Four dimensions. One integrated vision.',
       p01: {
         num: '01',
         title: 'PROPERTY',
@@ -194,6 +199,11 @@ export const TRANSLATIONS = {
         num: '03',
         title: 'INVESTMENT',
         desc: 'Creating opportunities that connect lifestyle appeal with sustainable long-term investment value.',
+      },
+      p04: {
+        num: '04',
+        title: 'TRAVEL & LIFESTYLE',
+        desc: 'Delivering exclusive travel experiences, destination appeal, and high-value lifestyle journeys.',
       },
     },
     cabinExperience: {

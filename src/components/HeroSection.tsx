@@ -42,15 +42,18 @@ export default function HeroSection({ onOpenSaungSare }: HeroSectionProps) {
           CABINS FOR LIFESTYLE, TRAVEL & INVESTMENT
         </p>
 
-        {/* ACTION BUTTON */}
-        <div className="pt-3 sm:pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
+        {/* ACTION BUTTON & SUBTITLE */}
+        <div className="pt-3 sm:pt-6 flex flex-col items-center justify-center gap-2 sm:gap-2.5">
           <a
             href="#pilot-project"
             onClick={handleScrollToPilot}
             className="border border-white/90 hover:border-white hover:bg-white hover:text-[#111817] text-white font-sans text-[10px] sm:text-xs tracking-[0.15em] sm:tracking-[0.2em] uppercase px-5 sm:px-8 py-2.5 sm:py-3.5 transition-all duration-300 shadow-2xl cursor-pointer rounded-none"
           >
-            EKSPLOR PROYEK: SAUNG SARE
+            Saung Sare Project Exploration
           </a>
+          <p className="font-sans font-light text-[9px] sm:text-[11px] text-white/80 tracking-[0.15em] sm:tracking-[0.22em] uppercase drop-shadow-sm pt-1">
+            development by Jbi Wolrd Holding Company
+          </p>
         </div>
       </div>
     </section>

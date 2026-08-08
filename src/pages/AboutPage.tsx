@@ -1,110 +1,105 @@
 import React from 'react';
 import { COMPANY_DATA } from '../data/companyData';
 import { SITE_IMAGES } from '../data/assetsData';
+import { useLanguage } from '../context/LanguageContext';
+import { TRANSLATIONS } from '../data/translations';
 
 interface AboutPageProps {
-  onOpenContactModal?: () => void;
+  onOpenContactModal?: (service?: string) => void;
 }
 
 export default function AboutPage({ onOpenContactModal }: AboutPageProps) {
+  const { language } = useLanguage();
+  const t = TRANSLATIONS[language];
   const companyNameWithoutPT = COMPANY_DATA.name.replace(/^PT\.\s*/i, '');
 
   return (
-    <div className="pt-28 pb-20 bg-[#F8F6F0] text-[#111817] min-h-screen text-left">
-      <div className="max-w-7xl mx-auto px-6 space-y-16">
+    <div className="pt-32 pb-24 bg-[#0B241C] text-[#F5F1E8] min-h-screen text-left">
+      <div className="max-w-7xl mx-auto px-6 sm:px-12 space-y-20">
         
         {/* HEADER SECTION */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="text-[#D4AF37] uppercase tracking-widest text-xs font-semibold">Profil Perusahaan</span>
-          <h1 className="text-4xl sm:text-5xl font-serif font-bold text-[#1B3B2B] uppercase tracking-tight">
+        <div className="max-w-3xl space-y-4">
+          <div className="flex items-center gap-3">
+            <span className="h-[1px] w-8 bg-[#C9A227]" />
+            <span className="text-[10px] sm:text-xs font-sans font-semibold tracking-[0.3em] uppercase text-[#C9A227]">
+              {language === 'ID' ? 'PROFIL PERUSAHAAN' : 'COMPANY PROFILE'}
+            </span>
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl font-serif font-normal text-[#F5F1E8] leading-tight">
             {companyNameWithoutPT}
           </h1>
-          <p className="text-gray-600 text-base leading-relaxed">
+
+          <p className="font-sans font-light text-sm sm:text-base text-[#D8CDBB] leading-relaxed">
             {COMPANY_DATA.description}
           </p>
         </div>
 
-        {/* HERO IMAGE SHOWCASE (USER UPLOADED PHOTO) */}
-        <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#D4AF37]/30 aspect-[16/9] max-h-[500px]">
+        {/* HERO IMAGE SHOWCASE */}
+        <div className="relative overflow-hidden shadow-2xl border border-white/10 aspect-[16/9] max-h-[550px]">
           <img
-            src={SITE_IMAGES.aboutUsMaster}
+            src={SITE_IMAGES.storyMaster}
             alt="Premier Cabin Property & Hospitality Masterpiece"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover filter brightness-90"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1B3B2B]/90 via-transparent to-transparent flex items-end p-8 text-white">
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B241C]/90 via-transparent to-transparent flex items-end p-8 sm:p-12 text-white">
             <div>
-              <span className="text-[#D4AF37] font-serif italic text-xl block">Holding Company</span>
-              <h2 className="text-2xl sm:text-3xl font-serif font-bold uppercase">{COMPANY_DATA.industry}</h2>
+              <span className="text-[#C9A227] font-serif italic text-xl sm:text-2xl block">Holding Company</span>
+              <h2 className="text-2xl sm:text-4xl font-serif font-bold uppercase">{COMPANY_DATA.industry}</h2>
             </div>
           </div>
         </div>
 
-        {/* VISI & MISI */}
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <div className="bg-white p-8 rounded-2xl shadow-md border-t-4 border-[#1B3B2B] space-y-4">
-            <h3 className="text-2xl font-serif font-bold text-[#1B3B2B]">Visi Perusahaan</h3>
-            <p className="text-gray-700 leading-relaxed italic text-base">
-              "{COMPANY_DATA.visi}"
-            </p>
-          </div>
-
-          <div className="bg-white p-8 rounded-2xl shadow-md border-t-4 border-[#D4AF37] space-y-4">
-            <h3 className="text-2xl font-serif font-bold text-[#1B3B2B]">Misi Perusahaan</h3>
-            <ul className="space-y-3 text-sm text-gray-700">
-              {COMPANY_DATA.misi.map((m, idx) => (
-                <li key={idx} className="flex items-start gap-2.5">
-                  <span className="text-[#D4AF37] font-bold text-base">•</span>
-                  <span>{m}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
         {/* LAYANAN UTAMA PERUSAHAAN */}
-        <div className="space-y-8">
-          <div className="text-center max-w-xl mx-auto">
-            <span className="text-[#D4AF37] uppercase tracking-widest text-xs font-semibold">Pilar Bisnis</span>
-            <h3 className="text-3xl font-serif font-bold text-[#1B3B2B] mt-1">Layanan Utama Perusahaan</h3>
-            <p className="text-gray-600 text-sm mt-2 leading-relaxed">
-              Solusi properti, hospitality, investasi, dan pengalaman gaya hidup terpadu berstandar internasional.
-            </p>
+        <div className="space-y-12">
+          <div className="max-w-xl space-y-2">
+            <span className="text-[#C9A227] uppercase tracking-[0.3em] text-xs font-semibold">
+              {t.coreBusiness.label}
+            </span>
+            <h3 className="text-3xl sm:text-4xl font-serif font-normal text-[#F5F1E8]">
+              {t.coreBusiness.headline}
+            </h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {COMPANY_DATA.services.map((svc, idx) => (
               <div
                 key={svc.id}
-                className="bg-white p-7 rounded-2xl shadow-sm border border-gray-100 space-y-3 hover:shadow-md hover:border-[#D4AF37]/50 transition-all duration-300 flex flex-col justify-between"
+                onClick={() => onOpenContactModal && onOpenContactModal(svc.title)}
+                className="bg-white/5 p-8 border border-white/10 hover:border-[#C9A227] transition-all duration-500 flex flex-col justify-between cursor-pointer group"
               >
-                <div className="space-y-3">
-                  <div className="w-12 h-12 bg-[#1B3B2B]/10 text-[#1B3B2B] rounded-xl flex items-center justify-center font-bold text-lg font-serif">
+                <div className="space-y-4">
+                  <span className="font-serif text-2xl text-[#C9A227] font-semibold block">
                     0{idx + 1}
-                  </div>
-                  <h4 className="font-serif font-bold text-xl text-[#1B3B2B]">{svc.title}</h4>
-                  <p className="text-xs font-semibold text-[#D4AF37]">{svc.subtitle}</p>
-                  <p className="text-xs text-gray-600 leading-relaxed">{svc.description}</p>
+                  </span>
+                  <h4 className="font-serif text-xl text-[#F5F1E8] group-hover:text-[#C9A227] transition-colors">{svc.title}</h4>
+                  <p className="text-xs font-semibold text-[#C9A227] font-sans uppercase tracking-wider">{svc.subtitle}</p>
+                  <p className="text-xs text-[#D8CDBB] font-light leading-relaxed">{svc.description}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* CORE VALUES */}
-        <div className="space-y-8">
-          <div className="text-center max-w-xl mx-auto">
-            <span className="text-[#D4AF37] uppercase tracking-widest text-xs font-semibold">Fondasi Bisnis</span>
-            <h3 className="text-3xl font-serif font-bold text-[#1B3B2B] mt-1">Nilai Perusahaan (Core Values)</h3>
+        {/* VISI & MISI */}
+        <div className="grid md:grid-cols-2 gap-12 items-start border-t border-white/10 pt-16">
+          <div className="bg-white/5 p-8 border border-white/10 space-y-4">
+            <h3 className="text-2xl font-serif font-normal text-[#F5F1E8]">{t.visionMission.visionLabel}</h3>
+            <p className="text-[#D8CDBB] leading-relaxed italic text-base font-serif">
+              "{t.visionMission.visionTitle}"
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {COMPANY_DATA.values.map((val, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center space-y-2 hover:border-[#D4AF37] transition-all">
-                <span className="text-[#D4AF37] font-serif font-bold text-2xl block">0{idx + 1}</span>
-                <h4 className="font-serif font-bold text-base text-[#1B3B2B]">{val.title}</h4>
-                <p className="text-xs text-gray-600 leading-relaxed">{val.desc}</p>
-              </div>
-            ))}
+          <div className="bg-white/5 p-8 border border-white/10 space-y-4">
+            <h3 className="text-2xl font-serif font-normal text-[#F5F1E8]">{t.visionMission.missionLabel}</h3>
+            <ul className="space-y-3 text-xs sm:text-sm text-[#D8CDBB] font-light">
+              {[t.visionMission.m1, t.visionMission.m2, t.visionMission.m3, t.visionMission.m4].map((m, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <span className="text-[#C9A227] font-serif font-bold text-base">0{idx + 1}</span>
+                  <span>{m}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 

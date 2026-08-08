@@ -7,10 +7,11 @@ import AboutPage from './pages/AboutPage';
 import SaungSarePage from './pages/SaungSarePage';
 import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
+import { LanguageProvider } from './context/LanguageContext';
 import { ChevronUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
-export default function App() {
+function MainAppContent() {
   const [currentPage, setCurrentPage] = useState<'home' | 'about' | 'saung-sare' | 'services' | 'contact'>('home');
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState('Pilot Project Saung Sare');
@@ -18,13 +19,8 @@ export default function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 400) {
-        setShowScrollTop(true);
-      } else {
-        setShowScrollTop(false);
-      }
+      setShowScrollTop(window.scrollY > 400);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -46,9 +42,9 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#FDFBF7] text-[#0F172A] selection:bg-[#0F382C] selection:text-[#F4EFE6] font-sans">
+    <div className="relative min-h-screen bg-[#0B241C] text-[#F5F1E8] selection:bg-[#C9A227] selection:text-[#0B241C] font-sans antialiased">
       
-      {/* NAVBAR WITH 5-PAGE ROUTING */}
+      {/* NAVBAR */}
       <Navbar
         currentPage={currentPage}
         setCurrentPage={handleNavigatePage}
@@ -64,7 +60,7 @@ export default function App() {
             onOpenContactModal={handleOpenContactWithService}
           />
         ) : currentPage === 'about' ? (
-          <AboutPage onOpenContactModal={() => handleOpenContactWithService('General Consultation')} />
+          <AboutPage onOpenContactModal={(svc) => handleOpenContactWithService(svc)} />
         ) : currentPage === 'saung-sare' ? (
           <SaungSarePage onOpenContactModal={(svc) => handleOpenContactWithService(svc)} />
         ) : currentPage === 'services' ? (
@@ -77,19 +73,18 @@ export default function App() {
       {/* FOOTER SECTION */}
       <FooterSection
         onNavigatePage={handleNavigatePage}
-        onOpenContactModal={() => handleOpenContactWithService('Footer Inquiry')}
+        onOpenContactModal={(svc) => handleOpenContactWithService(svc || 'Footer Inquiry')}
       />
 
-      {/* CONTACT & INQUIRY POPUP MODAL */}
+      {/* CONTACT POPUP MODAL */}
       <ContactModal
         isOpen={contactModalOpen}
         onClose={() => setContactModalOpen(false)}
         initialService={selectedService}
       />
 
-      {/* FLOATING ACTION BUTTON (SCROLL TO TOP ONLY) */}
-      <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
-        {/* Scroll To Top */}
+      {/* FLOATING ACTION BUTTON (SCROLL TO TOP) */}
+      <div className="fixed bottom-6 right-6 z-40">
         <AnimatePresence>
           {showScrollTop && (
             <motion.button
@@ -97,16 +92,24 @@ export default function App() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0, opacity: 0 }}
               onClick={scrollToTop}
-              className="w-11 h-11 bg-[#1B3B2B] hover:bg-black text-[#D4AF37] border border-[#D4AF37]/40 rounded-full shadow-xl flex items-center justify-center cursor-pointer transition-all"
-              title="Kembali ke Atas"
+              className="w-11 h-11 bg-[#0B241C]/90 hover:bg-[#C9A227] text-[#C9A227] hover:text-[#0B241C] border border-[#C9A227]/40 backdrop-blur-md shadow-2xl flex items-center justify-center cursor-pointer transition-all duration-300"
+              title="Return to top"
               id="floater-scroll-top"
             >
-              <ChevronUp className="w-5 h-5 text-[#D4AF37]" />
+              <ChevronUp className="w-5 h-5" />
             </motion.button>
           )}
         </AnimatePresence>
       </div>
 
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <MainAppContent />
+    </LanguageProvider>
   );
 }

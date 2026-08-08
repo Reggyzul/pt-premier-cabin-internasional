@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Send, CheckCircle2, Phone, Mail, MapPin, Building2, Headset } from 'lucide-react';
+import { X, Send, CheckCircle2, Phone, Mail, MapPin, Building2 } from 'lucide-react';
+import { COMPANY_DATA } from '../data/companyData';
+import { useLanguage } from '../context/LanguageContext';
+import { TRANSLATIONS } from '../data/translations';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -9,6 +12,9 @@ interface ContactModalProps {
 }
 
 export default function ContactModal({ isOpen, onClose, initialService }: ContactModalProps) {
+  const { language } = useLanguage();
+  const t = TRANSLATIONS[language].modal;
+
   const [fullName, setFullName] = useState('');
   const [company, setCompany] = useState('');
   const [phone, setPhone] = useState('');
@@ -22,18 +28,18 @@ export default function ContactModal({ isOpen, onClose, initialService }: Contac
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!fullName || !phone || !email) {
-      alert('Mohon isi semua kolom bertanda *!');
+      alert('Please fill out all required fields!');
       return;
     }
 
     const waNumber = '6281234567890';
     const textTemplate = `Halo *PT. PREMIER CABIN INTERNASIONAL* 👋
 
-Berikut formulir pengajuan / konsultasi properti & hospitality saya:
+Berikut pengajuan konsultasi properti & hospitality saya:
 
 📋 *DETAIL KONSULTASI:*
 • Kategori Layanan: *${serviceCategory}*
-• Catatan / Pesan: *${message || '-'}*
+• Pesan: *${message || '-'}*
 
 👤 *DATA DIRI:*
 • Nama Lengkap: *${fullName}*
@@ -49,163 +55,131 @@ Mohon tim advisor PT. Premier Cabin Internasional dapat memberikan konsultasi & 
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-        {/* Backdrop Overlay */}
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto">
+        
+        {/* BACKDROP OVERLAY */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-[#051A14]/80 backdrop-blur-md"
+          className="fixed inset-0 bg-[#0B241C]/85 backdrop-blur-md"
         />
 
-        {/* Modal Container */}
+        {/* MODAL CONTAINER */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="bg-white rounded-3xl w-full max-w-4xl shadow-2xl relative overflow-hidden grid grid-cols-1 lg:grid-cols-12 z-10 my-auto border border-[#C5A059]/40"
+          className="bg-[#0B241C] text-[#F5F1E8] rounded-none w-full max-w-4xl shadow-2xl relative overflow-hidden grid grid-cols-1 lg:grid-cols-12 z-10 my-auto border border-[#C9A227]/30"
         >
-          {/* Close Button */}
+          {/* CLOSE BUTTON */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors z-20 cursor-pointer"
+            className="absolute top-4 right-4 p-2 text-white/80 hover:text-[#C9A227] transition-colors z-20 cursor-pointer"
           >
-            <X className="w-5 h-5" />
+            <X className="w-6 h-6" />
           </button>
 
-          {/* LEFT SIDEBAR: COMPANY CONTACT DETAILS */}
-          <div className="lg:col-span-5 bg-[#051A14] text-white p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden border-r border-[#C5A059]/20 text-left">
-            <div className="space-y-6 relative z-10">
+          {/* LEFT COLUMN: BRAND & CONTACT */}
+          <div className="lg:col-span-5 bg-[#071913] p-8 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-white/10 text-left">
+            <div className="space-y-6">
               
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0F382C] to-[#051A14] border border-[#C5A059]/40 flex items-center justify-center text-[#C5A059]">
-                  <Building2 className="w-5 h-5 text-[#C5A059]" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-display font-black text-base text-white uppercase leading-none">
-                    PREMIER CABIN <span className="text-[#C5A059]">INTERNASIONAL</span>
-                  </span>
-                  <span className="font-script text-xs text-[#C5A059]">"Mulih Ka Alam"</span>
+                <Building2 className="w-6 h-6 text-[#C9A227]" />
+                <div>
+                  <span className="font-serif text-lg text-white font-semibold block">Premier Cabin</span>
+                  <span className="text-[8px] text-[#C9A227] tracking-[0.3em] uppercase block">INTERNASIONAL</span>
                 </div>
               </div>
 
               <div>
-                <h3 className="font-display font-black text-2xl text-white uppercase tracking-tight">
-                  Konsultasi Properti & Resor
+                <h3 className="font-serif font-normal text-2xl text-[#F5F1E8]">
+                  {t.contactTitle}
                 </h3>
-                <p className="text-xs text-slate-300 font-medium mt-1">
-                  Diskusi investasi properti, reservasi pilot project Saung Sare, dan layanan hospitality.
+                <p className="font-sans font-light text-xs text-[#D8CDBB] mt-2 leading-relaxed">
+                  {t.contactSubtitle}
                 </p>
               </div>
 
-              <div className="space-y-3.5 text-xs text-slate-200 font-medium pt-2 border-t border-white/10">
+              <div className="space-y-3 text-xs font-sans font-light text-[#D8CDBB] pt-4 border-t border-white/10">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-4.5 h-4.5 text-[#C5A059] shrink-0 mt-0.5" />
-                  <span>Premier Cabin Building, Jl. Raya Utama No. 88, Indonesia</span>
+                  <MapPin className="w-4 h-4 text-[#C9A227] shrink-0 mt-0.5" />
+                  <span>{COMPANY_DATA.address.fullAddress}</span>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <Phone className="w-4.5 h-4.5 text-[#C5A059] shrink-0" />
-                  <span>Fixline: +62 (021) 8899-7766</span>
+                  <Mail className="w-4 h-4 text-[#C9A227] shrink-0" />
+                  <span>{COMPANY_DATA.contact.email}</span>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <Headset className="w-4.5 h-4.5 text-[#C5A059] shrink-0" />
-                  <span>WhatsApp 24/7: +62 812-3456-7890</span>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <Mail className="w-4.5 h-4.5 text-[#C5A059] shrink-0" />
-                  <span>info@premiercabin.co.id</span>
+                  <Phone className="w-4 h-4 text-[#C9A227] shrink-0" />
+                  <span>{COMPANY_DATA.contact.fixline} / {COMPANY_DATA.contact.whatsapp}</span>
                 </div>
               </div>
 
             </div>
 
-            <div className="pt-4 border-t border-white/10 mt-6 text-[10px] text-slate-400 font-medium">
-              © 2026 PT. Premier Cabin Internasional. All Rights Reserved.
+            <div className="pt-6 border-t border-white/10 text-[10px] text-white/40 font-sans">
+              © {new Date().getFullYear()} PT. Premier Cabin Internasional
             </div>
           </div>
 
-          {/* RIGHT SIDEBAR: FORM */}
-          <div className="lg:col-span-7 p-6 sm:p-8 bg-white max-h-[85vh] overflow-y-auto text-left relative">
+          {/* RIGHT COLUMN: FORM */}
+          <div className="lg:col-span-7 p-8 bg-[#0B241C] text-left">
             {!submitted ? (
               <form onSubmit={handleSubmit} className="space-y-4">
                 
                 <div>
-                  <h4 className="font-display font-black text-2xl text-[#0F382C] uppercase tracking-tight">
-                    Formulir Konsultasi Properti
-                  </h4>
-                  <p className="font-sans text-xs text-slate-500 font-medium mt-1">
-                    Silakan lengkapi formulir di bawah ini untuk terhubung langsung dengan Tim Advisor.
-                  </p>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
-                    Kategori Layanan / Proyek <span className="text-red-500">*</span>
+                  <label className="block text-xs font-sans uppercase tracking-[0.2em] text-[#C9A227] mb-1.5 font-medium">
+                    {t.serviceLabel} *
                   </label>
                   <select
                     value={serviceCategory}
                     onChange={(e) => setServiceCategory(e.target.value)}
-                    className="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-xs font-semibold text-slate-800 focus:ring-2 focus:ring-[#C5A059] focus:border-[#C5A059]"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/20 text-xs font-sans text-white focus:border-[#C9A227] focus:outline-none"
                   >
-                    <option value="Pilot Project Saung Sare">Pilot Project: Saung Sare</option>
-                    <option value="Property Development">Property Development</option>
-                    <option value="Hospitality Management">Hospitality Management</option>
-                    <option value="Investment & Partnership">Investment & Partnership</option>
-                    <option value="Travel & Lifestyle Services">Travel & Lifestyle Services</option>
+                    <option value="Pilot Project Saung Sare" className="bg-[#0B241C] text-white">Pilot Project: Saung Sare Eco Luxury Resort</option>
+                    <option value="Property Development" className="bg-[#0B241C] text-white">Property Development</option>
+                    <option value="Hospitality Management" className="bg-[#0B241C] text-white">Hospitality Management</option>
+                    <option value="Investment & Partnership" className="bg-[#0B241C] text-white">Investment & Partnership</option>
+                    <option value="Travel & Lifestyle Services" className="bg-[#0B241C] text-white">Travel & Lifestyle Services</option>
                   </select>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Nama Lengkap <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
-                      placeholder="Contoh: Hendra Wijaya"
-                      className="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-xs font-medium focus:ring-2 focus:ring-[#C5A059]"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Instansi / Perusahaan
-                    </label>
-                    <input
-                      type="text"
-                      value={company}
-                      onChange={(e) => setCompany(e.target.value)}
-                      placeholder="Nama Perusahaan / Pribadi"
-                      className="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-xs font-medium focus:ring-2 focus:ring-[#C5A059]"
-                    />
-                  </div>
+                <div>
+                  <label className="block text-xs font-sans uppercase tracking-[0.2em] text-[#C9A227] mb-1.5 font-medium">
+                    {t.nameLabel} *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    placeholder="e.g. Hendra Wijaya"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/20 text-xs font-sans text-white focus:border-[#C9A227] focus:outline-none"
+                  />
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Nomor WhatsApp / HP <span className="text-red-500">*</span>
+                    <label className="block text-xs font-sans uppercase tracking-[0.2em] text-[#C9A227] mb-1.5 font-medium">
+                      {t.phoneLabel} *
                     </label>
                     <input
                       type="tel"
                       required
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      placeholder="081234567890"
-                      className="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-xs font-medium focus:ring-2 focus:ring-[#C5A059]"
+                      placeholder="+62 812-3456-7890"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/20 text-xs font-sans text-white focus:border-[#C9A227] focus:outline-none"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Email Aktif <span className="text-red-500">*</span>
+                    <label className="block text-xs font-sans uppercase tracking-[0.2em] text-[#C9A227] mb-1.5 font-medium">
+                      {t.emailLabel} *
                     </label>
                     <input
                       type="email"
@@ -213,51 +187,49 @@ Mohon tim advisor PT. Premier Cabin Internasional dapat memberikan konsultasi & 
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="hendra@domain.com"
-                      className="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-xs font-medium focus:ring-2 focus:ring-[#C5A059]"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/20 text-xs font-sans text-white focus:border-[#C9A227] focus:outline-none"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
-                    Pesan / Pertanyaan Spesifik
+                  <label className="block text-xs font-sans uppercase tracking-[0.2em] text-[#C9A227] mb-1.5 font-medium">
+                    {t.messageLabel}
                   </label>
                   <textarea
                     rows={3}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Pertanyaan mengenai lokasi, skema bagi hasil, atau kunjungan ke lokasi Saung Sare..."
-                    className="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-xs font-medium focus:ring-2 focus:ring-[#C5A059]"
+                    placeholder="Your inquiry details..."
+                    className="w-full px-4 py-3 bg-white/5 border border-white/20 text-xs font-sans text-white focus:border-[#C9A227] focus:outline-none"
                   />
                 </div>
 
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full bg-[#0F382C] hover:bg-[#14532D] text-[#F4EFE6] font-sans font-bold text-xs uppercase py-4 rounded-xl border border-[#C5A059]/40 shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full border border-[#C9A227] bg-[#C9A227] text-[#0B241C] hover:bg-white hover:text-[#0B241C] font-sans font-semibold text-xs uppercase tracking-[0.2em] py-4 transition-all duration-300 shadow-xl flex items-center justify-center gap-2 cursor-pointer"
                   >
-                    <Send className="w-4 h-4 text-[#C5A059]" />
-                    <span>Kirim Formulir via WhatsApp</span>
+                    <Send className="w-4 h-4" />
+                    <span>{t.submitBtn}</span>
                   </button>
                 </div>
 
               </form>
             ) : (
               <div className="py-12 text-center space-y-4">
-                <div className="w-16 h-16 bg-[#0F382C]/10 text-[#C5A059] rounded-full flex items-center justify-center mx-auto border border-[#C5A059]/30">
-                  <CheckCircle2 className="w-10 h-10 text-[#C5A059]" />
-                </div>
-                <h4 className="font-display font-black text-2xl text-[#0F382C]">
-                  Formulir Konsultasi Terkirim!
+                <CheckCircle2 className="w-12 h-12 text-[#C9A227] mx-auto" />
+                <h4 className="font-serif text-2xl text-[#F5F1E8]">
+                  Inquiry Sent Successfully!
                 </h4>
-                <p className="text-xs text-slate-600 max-w-md mx-auto leading-relaxed">
-                  Terima kasih! Pesan Anda telah diteruskan ke WhatsApp Tim Advisor PT. Premier Cabin Internasional.
+                <p className="text-xs font-sans text-[#D8CDBB] max-w-md mx-auto leading-relaxed">
+                  {t.successMsg}
                 </p>
                 <button
                   onClick={onClose}
-                  className="bg-[#0F382C] text-[#F4EFE6] font-bold text-xs uppercase px-6 py-3 rounded-xl border border-[#C5A059]/40 hover:bg-[#14532D]"
+                  className="border border-[#C9A227] text-[#C9A227] hover:bg-[#C9A227] hover:text-[#0B241C] text-xs font-sans uppercase tracking-[0.2em] px-6 py-3"
                 >
-                  Tutup Form
+                  Close
                 </button>
               </div>
             )}

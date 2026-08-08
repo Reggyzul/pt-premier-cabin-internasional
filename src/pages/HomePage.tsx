@@ -1,7 +1,16 @@
 import React from 'react';
 import HeroSection from '../components/HeroSection';
-import AboutSection from '../components/AboutSection';
-import PilotProjectSection from '../components/PilotProjectSection';
+import StoryIntroSection from '../components/StoryIntroSection';
+import FullWidthImageStorySection from '../components/FullWidthImageStorySection';
+import CoreBusinessSection from '../components/CoreBusinessSection';
+import CabinExperienceSection from '../components/CabinExperienceSection';
+import InvestmentSection from '../components/InvestmentSection';
+import SustainabilitySection from '../components/SustainabilitySection';
+import DestinationsSection from '../components/DestinationsSection';
+import ProjectShowcaseSection from '../components/ProjectShowcaseSection';
+import ValuesEditorialSection from '../components/ValuesEditorialSection';
+import VisionMissionSection from '../components/VisionMissionSection';
+import BrandStatementSection from '../components/BrandStatementSection';
 
 interface HomePageProps {
   onNavigatePage: (page: 'home' | 'about' | 'saung-sare' | 'services' | 'contact') => void;
@@ -11,23 +20,46 @@ interface HomePageProps {
 
 export default function HomePage({ onNavigatePage, onOpenSaungSareModal, onOpenContactModal }: HomePageProps) {
   return (
-    <div className="relative text-left">
+    <div className="relative text-left bg-[#0B241C] text-[#F5F1E8]">
       
-      {/* 1. HERO SECTION (STICKY BACKDROP BANNER FOR SMOOTH COVER REVEAL) */}
-      <div className="sticky top-0 z-0 w-full overflow-hidden">
-        <HeroSection onOpenSaungSare={() => onNavigatePage('saung-sare')} />
-      </div>
+      {/* 1. HERO SECTION */}
+      <HeroSection
+        onNavigatePage={onNavigatePage}
+        onOpenSaungSare={onOpenSaungSareModal}
+      />
 
-      {/* 2. OVERLAY SECTIONS CONTAINER (SLIDES OVER HERO GRADUALLY AS YOU SCROLL) */}
-      <div className="relative z-10 bg-[#F8F6F0] rounded-t-[28px] sm:rounded-t-[44px] shadow-[0_-20px_50px_rgba(0,0,0,0.45)] border-t border-[#D4AF37]/30 transition-all duration-300">
-        
-        {/* 2. ABOUT US (Klik Selengkapnya membuka Halaman Khusus Tentang Kami) */}
-        <AboutSection onOpenAboutPage={() => onNavigatePage('about')} />
+      {/* 2. STORYTELLING INTRO */}
+      <StoryIntroSection onNavigatePage={onNavigatePage} />
 
-        {/* 3. FEATURED PILOT PROJECT (Showcase Utama: Saung Sare) */}
-        <PilotProjectSection onOpenSaungSareModal={() => onNavigatePage('saung-sare')} />
+      {/* 3. FULL-WIDTH CINEMATIC IMAGE STORY */}
+      <FullWidthImageStorySection />
 
-      </div>
+      {/* 4. CORE BUSINESS (3 DIMENSIONS) */}
+      <CoreBusinessSection onOpenContactModal={onOpenContactModal} />
+
+      {/* 5. CABIN EXPERIENCE */}
+      <CabinExperienceSection />
+
+      {/* 6. INVESTMENT STORY */}
+      <InvestmentSection onOpenContactModal={onOpenContactModal} />
+
+      {/* 7. NATURE & SUSTAINABILITY */}
+      <SustainabilitySection />
+
+      {/* 8. INDONESIAN DESTINATIONS */}
+      <DestinationsSection onOpenContactModal={onOpenContactModal} />
+
+      {/* 9. PROJECTS SHOWCASE (SAUNG SARE) */}
+      <ProjectShowcaseSection onOpenSaungSareModal={onOpenSaungSareModal} />
+
+      {/* 10. VALUES (EDITORIAL INTERACTIVE VERTICAL LIST) */}
+      <ValuesEditorialSection />
+
+      {/* 11. VISION & MISSION */}
+      <VisionMissionSection />
+
+      {/* 12. BRAND STATEMENT */}
+      <BrandStatementSection />
 
     </div>
   );

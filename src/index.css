@@ -3,51 +3,54 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
   }
   
   body {
-    background-color: #F8F6F0;
-    color: #1F2937;
+    background-color: #0B241C;
+    color: #F5F1E8;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, .font-serif {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', 'Playfair Display', serif;
   }
 
   .font-sans {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
   }
 }
 
-/* Custom Palette Utility Classes */
-.bg-brand-green { background-color: #1B3B2B; }
-.bg-brand-gold { background-color: #D4AF37; }
-.bg-brand-beige { background-color: #F8F6F0; }
-.bg-brand-dark { background-color: #111817; }
+/* Custom Editorial Palette Utilities */
+.bg-deep-forest { background-color: #0B241C; }
+.bg-forest-green { background-color: #123C2E; }
+.bg-warm-ivory { background-color: #F5F1E8; }
+.bg-champagne-gold { background-color: #C9A227; }
+.bg-soft-sand { background-color: #D8CDBB; }
+.bg-charcoal-dark { background-color: #17201C; }
 
-.text-brand-green { color: #1B3B2B; }
-.text-brand-gold { color: #D4AF37; }
-.text-brand-beige { color: #F8F6F0; }
-.text-brand-dark { color: #111817; }
+.text-deep-forest { color: #0B241C; }
+.text-forest-green { color: #123C2E; }
+.text-warm-ivory { color: #F5F1E8; }
+.text-champagne-gold { color: #C9A227; }
+.text-soft-sand { color: #D8CDBB; }
 
-.border-brand-green { border-color: #1B3B2B; }
-.border-brand-gold { border-color: #D4AF37; }
+.border-champagne-gold { border-color: #C9A227; }
+.border-forest-green { border-color: #123C2E; }
 
-/* Custom Premium Scrollbar */
+/* Custom Luxury Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F8F6F0;
+  background: #0B241C;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1B3B2B;
-  border-radius: 4px;
+  background: #123C2E;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #D4AF37;
+  background: #C9A227;
 }

@@ -80,13 +80,13 @@ export default function Navbar({ currentPage, setCurrentPage, onOpenContactModal
             </button>
           </div>
 
-          {/* RIGHT COLUMN: ELEGANT SUBTLE CONTACT LINK (DESKTOP ONLY) */}
+          {/* RIGHT COLUMN: SLEEK SUBTLE CONTACT LINK (VISIBLE ON MOBILE & DESKTOP) */}
           <div className="flex items-center justify-end">
             <button
               onClick={() => onOpenContactModal()}
-              className="hidden md:inline-flex text-[10px] uppercase tracking-[0.25em] font-sans font-medium text-white/90 hover:text-[#C9A227] transition-colors cursor-pointer"
+              className="text-[8px] sm:text-[9px] font-sans font-medium uppercase tracking-[0.18em] sm:tracking-[0.2em] text-white/90 hover:text-[#C9A227] border border-white/20 hover:border-[#C9A227] px-2 sm:px-3 py-1 transition-all duration-300 cursor-pointer"
             >
-              CONTACT
+              {t.contact}
             </button>
           </div>
 

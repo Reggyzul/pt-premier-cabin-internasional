@@ -115,19 +115,31 @@ export default function SaungSarePage({ onOpenContactModal }: SaungSarePageProps
         {/* HERO CONTENT CONTAINER */}
         <div className="relative z-20 text-center max-w-5xl px-6 space-y-6 pt-20 sm:pt-10">
           
-          {/* BRAND MOTIF BADGE */}
-          <div className="inline-flex items-center gap-2 border border-[#C9A227]/60 bg-black/40 backdrop-blur-md px-4 py-1.5 rounded-full">
+          {/* BRAND MOTIF BADGE & TAGLINE */}
+          <div className="inline-flex items-center gap-2 border border-[#C9A227]/60 bg-black/40 backdrop-blur-md px-5 py-2 rounded-full">
             <TreePine className="w-4 h-4 text-[#C9A227]" />
-            <span className="text-[10px] sm:text-xs font-sans font-semibold tracking-[0.3em] uppercase text-[#C9A227]">
-              SAUNG SARE REST DESTINATION
+            <span className="text-xs font-sans font-semibold tracking-[0.35em] uppercase text-[#F5F1E8]">
+              SAUNG SARE
+            </span>
+            <span className="text-[#C9A227] font-serif italic text-sm border-l border-white/20 pl-2">
+              Mulih Ka Alam
             </span>
           </div>
 
-          {/* MAIN SERIF HEADLINE */}
-          <h1 className="font-serif font-normal text-4xl sm:text-7xl md:text-8xl text-[#F5F1E8] tracking-tight leading-[1.1] drop-shadow-2xl">
-            Datang. Istirahat. <br className="hidden sm:block" />
-            <span className="italic text-[#C9A227] font-light">Pulang lebih baik.</span>
-          </h1>
+          {/* MAIN BRAND TITLE & TAGLINE */}
+          <div className="space-y-2">
+            <h1 className="font-serif font-bold text-5xl sm:text-7xl md:text-8xl text-[#F5F1E8] tracking-tight leading-[1.05] drop-shadow-2xl">
+              Saung Sare
+            </h1>
+            <p className="font-serif italic text-2xl sm:text-4xl text-[#C9A227] font-light">
+              "Mulih Ka Alam"
+            </p>
+          </div>
+
+          {/* BROCHURE SLOGAN HEADLINE */}
+          <h2 className="font-serif text-2xl sm:text-4xl text-white/90 pt-2 font-normal">
+            Datang. Istirahat. <span className="italic text-[#C9A227]">Pulang lebih baik.</span>
+          </h2>
 
           {/* SLOGAN SUBTEXT */}
           <p className="font-sans font-light text-xs sm:text-base text-[#D8CDBB] max-w-2xl mx-auto leading-relaxed tracking-wide drop-shadow-md px-4">
@@ -163,9 +175,12 @@ export default function SaungSarePage({ onOpenContactModal }: SaungSarePageProps
             {/* LEFT COLUMN: FILOSOFI & 4 IKON (7 COLS) */}
             <div className="lg:col-span-7 space-y-10">
               <div className="space-y-3">
-                <span className="text-[10px] font-sans font-semibold tracking-[0.3em] uppercase text-[#C9A227]">
-                  SAUNG SARE REST DESTINATION
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-sans font-semibold tracking-[0.3em] uppercase text-[#C9A227]">
+                    SAUNG SARE
+                  </span>
+                  <span className="text-xs font-serif italic text-white/70">— Mulih Ka Alam</span>
+                </div>
                 <h2 className="font-serif font-normal text-3xl sm:text-5xl text-[#F5F1E8]">
                   Tempat Terbaik Untuk Mengisi Ulang Energi Anda.
                 </h2>
@@ -281,9 +296,12 @@ export default function SaungSarePage({ onOpenContactModal }: SaungSarePageProps
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/80 z-10" />
 
         <div className="relative z-20 text-center max-w-4xl px-6 space-y-4">
-          <span className="text-[10px] sm:text-xs font-sans font-semibold tracking-[0.35em] uppercase text-[#C9A227]">
-            SAUNG SARE REST DESTINATION
-          </span>
+          <div className="inline-flex items-center gap-2">
+            <span className="text-[10px] sm:text-xs font-sans font-semibold tracking-[0.35em] uppercase text-[#C9A227]">
+              SAUNG SARE
+            </span>
+            <span className="text-xs font-serif italic text-white/80">— Mulih Ka Alam</span>
+          </div>
           <h3 className="font-serif font-normal text-3xl sm:text-6xl text-[#F5F1E8] italic leading-tight">
             "Hanya Anda, waktu, dan ketenangan."
           </h3>

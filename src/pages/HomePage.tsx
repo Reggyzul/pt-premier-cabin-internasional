@@ -6,7 +6,6 @@ import CabinExperienceSection from '../components/CabinExperienceSection';
 import SustainabilitySection from '../components/SustainabilitySection';
 import ProjectShowcaseSection from '../components/ProjectShowcaseSection';
 import ValuesEditorialSection from '../components/ValuesEditorialSection';
-import VisionMissionSection from '../components/VisionMissionSection';
 import BrandStatementSection from '../components/BrandStatementSection';
 
 interface HomePageProps {
@@ -42,9 +41,6 @@ export default function HomePage({ onNavigatePage, onOpenSaungSareModal, onOpenC
 
       {/* 10. VALUES (EDITORIAL INTERACTIVE VERTICAL LIST) */}
       <ValuesEditorialSection />
-
-      {/* 11. VISION & MISSION */}
-      <VisionMissionSection />
 
       {/* 12. BRAND STATEMENT */}
       <BrandStatementSection />

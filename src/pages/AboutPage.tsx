@@ -2,6 +2,7 @@ import React from 'react';
 import { COMPANY_DATA } from '../data/companyData';
 import { SITE_IMAGES } from '../data/assetsData';
 import CoreBusinessSection from '../components/CoreBusinessSection';
+import VisionMissionSection from '../components/VisionMissionSection';
 import { useLanguage } from '../context/LanguageContext';
 import { TRANSLATIONS } from '../data/translations';
 
@@ -54,27 +55,8 @@ export default function AboutPage({ onOpenContactModal }: AboutPageProps) {
         {/* LAYANAN UTAMA PERUSAHAAN (3 DIMENSI TERPADU LENGKAP WITH PHOTOGRAPHY) */}
         <CoreBusinessSection onOpenContactModal={onOpenContactModal} />
 
-        {/* VISI & MISI */}
-        <div className="grid md:grid-cols-2 gap-12 items-start border-t border-white/10 pt-16">
-          <div className="bg-white/5 p-8 border border-white/10 space-y-4">
-            <h3 className="text-2xl font-serif font-normal text-[#F5F1E8]">{t.visionMission.visionLabel}</h3>
-            <p className="text-[#D8CDBB] leading-relaxed italic text-base font-serif">
-              "{t.visionMission.visionTitle}"
-            </p>
-          </div>
-
-          <div className="bg-white/5 p-8 border border-white/10 space-y-4">
-            <h3 className="text-2xl font-serif font-normal text-[#F5F1E8]">{t.visionMission.missionLabel}</h3>
-            <ul className="space-y-3 text-xs sm:text-sm text-[#D8CDBB] font-light">
-              {[t.visionMission.m1, t.visionMission.m2, t.visionMission.m3, t.visionMission.m4].map((m, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <span className="text-[#C9A227] font-serif font-bold text-base">0{idx + 1}</span>
-                  <span>{m}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        {/* EDITORIAL VISION & MISSION SECTION */}
+        <VisionMissionSection />
 
       </div>
     </div>

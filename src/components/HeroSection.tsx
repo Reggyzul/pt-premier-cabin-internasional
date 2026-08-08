@@ -51,9 +51,14 @@ export default function HeroSection({ onOpenSaungSare }: HeroSectionProps) {
           >
             Saung Sare Project Exploration
           </a>
-          <p className="font-sans font-light text-[9px] sm:text-[11px] text-white/80 tracking-[0.15em] sm:tracking-[0.22em] uppercase drop-shadow-sm pt-1">
-            development by Jbi Wolrd Holding Company
-          </p>
+          <div className="flex flex-col items-center justify-center pt-1 text-center">
+            <span className="font-sans font-light text-[9px] sm:text-[10px] text-white/75 tracking-[0.2em] uppercase drop-shadow-sm">
+              DEVELOPMENT BY
+            </span>
+            <span className="font-sans font-bold text-[10px] sm:text-[12px] text-white tracking-[0.15em] sm:tracking-[0.2em] uppercase drop-shadow-md mt-0.5">
+              JBI WORLD HOLDING COMPANY
+            </span>
+          </div>
         </div>
       </div>
     </section>

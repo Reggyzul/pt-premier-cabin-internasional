@@ -32,8 +32,8 @@ export const SITE_IMAGES = {
   destBali: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1600&q=90',
   destCentralJava: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=1600&q=90',
 
-  // 9. SAUNG SARE PILOT PROJECT SHOWCASE
-  saungSareHero: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1800&q=90',
+  // 9. SAUNG SARE PILOT PROJECT SHOWCASE (4K Mountain Infinity Pool & Rainforest Timber Saungs)
+  saungSareHero: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=2400&q=95',
   saungSareInterior: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1800&q=90',
 
   // 10. TRAVEL & LIFESTYLE EXPERIENCE (4K Luxury Eco Resort Infinity Pool & Destination Photography)

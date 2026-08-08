@@ -136,11 +136,6 @@ export default function SaungSarePage({ onOpenContactModal }: SaungSarePageProps
             </p>
           </div>
 
-          {/* BROCHURE SLOGAN HEADLINE */}
-          <h2 className="font-serif text-2xl sm:text-4xl text-white/90 pt-2 font-normal">
-            Datang. Istirahat. <span className="italic text-[#C9A227]">Pulang lebih baik.</span>
-          </h2>
-
           {/* SLOGAN SUBTEXT */}
           <p className="font-sans font-light text-xs sm:text-base text-[#D8CDBB] max-w-2xl mx-auto leading-relaxed tracking-wide drop-shadow-md px-4">
             Tempat untuk berhenti sejenak dari rutinitas. Tarik napas. Lepaskan penat. Nikmati waktu berkualitas bersama orang yang Anda sayangi.

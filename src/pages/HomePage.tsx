@@ -2,7 +2,6 @@ import React from 'react';
 import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
 import PilotProjectSection from '../components/PilotProjectSection';
-import CoreServicesSection from '../components/CoreServicesSection';
 
 interface HomePageProps {
   onNavigatePage: (page: 'home' | 'about' | 'saung-sare' | 'services' | 'contact') => void;
@@ -27,9 +26,6 @@ export default function HomePage({ onNavigatePage, onOpenSaungSareModal, onOpenC
 
         {/* 3. FEATURED PILOT PROJECT (Showcase Utama: Saung Sare) */}
         <PilotProjectSection onOpenSaungSareModal={() => onNavigatePage('saung-sare')} />
-
-        {/* 4. OUR CORE SERVICES (Overview 4 Pilar Utama) */}
-        <CoreServicesSection onSelectService={(title) => onOpenContactModal(title)} />
 
       </div>
 

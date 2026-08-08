@@ -7,6 +7,8 @@ interface AboutPageProps {
 }
 
 export default function AboutPage({ onOpenContactModal }: AboutPageProps) {
+  const companyNameWithoutPT = COMPANY_DATA.name.replace(/^PT\.\s*/i, '');
+
   return (
     <div className="pt-28 pb-20 bg-[#F8F6F0] text-[#111817] min-h-screen text-left">
       <div className="max-w-7xl mx-auto px-6 space-y-16">
@@ -15,7 +17,7 @@ export default function AboutPage({ onOpenContactModal }: AboutPageProps) {
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <span className="text-[#D4AF37] uppercase tracking-widest text-xs font-semibold">Profil Perusahaan</span>
           <h1 className="text-4xl sm:text-5xl font-serif font-bold text-[#1B3B2B] uppercase tracking-tight">
-            Tentang {COMPANY_DATA.name}
+            {companyNameWithoutPT}
           </h1>
           <p className="text-gray-600 text-base leading-relaxed">
             {COMPANY_DATA.description}

@@ -78,7 +78,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
           <div className="space-y-3">
             <h4 className="text-xs font-black text-white uppercase tracking-wider text-amber-400">Tautan Penting</h4>
             <ul className="space-y-2 text-slate-300 font-medium">
-              <li><a href="#about" className="hover:text-white transition-colors">Tentang PT. Premier Cabin Internasional</a></li>
+              <li><a href="#about" className="hover:text-white transition-colors">Premier Cabin Internasional</a></li>
               <li><a href="#legalitas" className="hover:text-white transition-colors">Legalitas & Sertifikasi K3</a></li>
               <li><a href="#galeri" className="hover:text-white transition-colors">Galeri Proyek & Unit</a></li>
               <li><a href="#kontak" className="hover:text-white transition-colors">Hubungi Layanan Kontak</a></li>
